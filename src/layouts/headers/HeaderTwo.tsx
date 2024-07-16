@@ -31,12 +31,7 @@ const HeaderTwo = ({ style_1, style_2 }: any) => {
 
                      <div className="right-widget ms-auto me-3 me-lg-0 order-lg-3">
                         <ul className="d-flex align-items-center style-none">
-                           {!style_2 ? (<><li className="d-flex align-items-center login-btn-one">
-                              <i className="fa-regular fa-lock"></i>
-                              <Link href="#" data-bs-toggle="modal" data-bs-target="#loginModal" className="fw-500 tran3s">
-                                 Login <span className="d-none d-sm-inline-block"> {""} / Sign up</span></Link>
-                           </li>
-                         
+                           {!style_2 ? (<>
                               <li className="d-none d-xl-block">
                                  <button onClick={() => setOffCanvas(true)} style={{ cursor: "pointer" }} className="sidenavbtn rounded-circle tran3s" type="button">
                                     <i className="fa-sharp fa-light fa-bars-filter"></i>

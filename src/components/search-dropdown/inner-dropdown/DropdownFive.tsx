@@ -26,7 +26,7 @@ const DropdownFive = ({
             <div className="container">
                <div className="title-one text-center mb-55 xl-mb-30 lg-mb-20 wow fadeInUp">
                   <h3>Encontre o seu  <span>Imovel<Image src={titleShape} alt="" className="lazy-img" /></span></h3>
-                  <p className="fs-24 mt-xs">Possumios mais de 3000 propriedade.</p>
+                  <p className="fs-24 mt-xs">Possumíos mais de 3.000 propriedades.</p>
                </div>
                <div className="row">
                   <div className="col-xxl-10 m-auto">

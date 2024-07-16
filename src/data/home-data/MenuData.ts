@@ -22,14 +22,9 @@ const menu_data: MenuItem[] = [
 
     {
         id: 1,
-        has_dropdown: true,
+        has_dropdown: false,
         title: "Home",
-        link: "#",
-        sub_menus: [
-            { link: "/", title: "Home 01" },
-            { link: "/home-five", title: "Home 05" },
-
-        ],
+        link: "/"
     },
     {
         id: 2,
@@ -65,8 +60,6 @@ const menu_data: MenuItem[] = [
                     { link: "/about_us_02", title: "Zucheratto Imobiliaria" },
                     { link: "/contact", title: "Contato" },
                     { link: "/faq", title: "FAQ's" },
-                    { link: "/not-found", title: "404-Error" },
-                
                 ]
             },
             

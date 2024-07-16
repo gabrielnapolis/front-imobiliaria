@@ -2,7 +2,7 @@
 import { useState } from "react";
 import NiceSelect from "@/ui/NiceSelect";
 
-const tab_title: string[] = ["Buy", "Rent",];
+const tab_title: string[] = ["Comprar", "Alugar",];
 
 const DropdownFive = () => {
 
