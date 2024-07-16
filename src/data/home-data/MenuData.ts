@@ -57,9 +57,9 @@ const menu_data: MenuItem[] = [
                 mega_title: "Essential",
                 mega_menus: [
                
-                    { link: "/about_us_02", title: "Zucheratto Imobiliaria" },
                     { link: "/contact", title: "Contato" },
-                    { link: "/faq", title: "FAQ's" },
+                    { link: "/faq", title: "Dúvidas Frequêntes" },
+                    { link: "/about_us_02", title: "Zucheratto Imobiliaria" },
                 ]
             },
             
