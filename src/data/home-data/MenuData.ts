@@ -59,7 +59,7 @@ const menu_data: MenuItem[] = [
                
                     { link: "/contact", title: "Contato" },
                     { link: "/faq", title: "Dúvidas Frequêntes" },
-                    { link: "/about_us_02", title: "Zucheratto Imobiliaria" },
+                    { link: "/about_us", title: "Zucheratto Imobiliaria" },
                 ]
             },
             
