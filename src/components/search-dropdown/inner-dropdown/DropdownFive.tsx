@@ -39,11 +39,8 @@ const DropdownFive = ({
                                        <div className="label">Estou buscando por...</div>
                                        <NiceSelect className="nice-select"
                                           options={[
-                                             { value: "apartments", text: "Buy Apartments" },
-                                             { value: "condos", text: "Rent Condos" },
-                                             { value: "houses", text: "Sell Houses" },
-                                             { value: "industrial", text: "Rent Industrial" },
-                                             { value: "villas", text: "Sell Villas" },
+                                             { value: "apartments", text: "Apartmentos" },
+                                             { value: "condos", text: "Casas" },
                                           ]}
                                           defaultCurrent={0}
                                           onChange={handleStatusChange}
@@ -53,16 +50,10 @@ const DropdownFive = ({
                                  </div>
                                  <div className="col-xl-5 col-lg-4">
                                     <div className="input-box-one border-left">
-                                       <div className="label">Location</div>
+                                       <div className="label">Localização</div>
                                        <NiceSelect className="nice-select location"
                                           options={[
-                                             { value: "washington", text: "Washington DC" },
-                                             { value: "mexico", text: "Acapulco, Mexico" },
-                                             { value: "germany", text: "Berlin, Germany" },
-                                             { value: "france", text: "Cannes, France" },
-                                             { value: "india", text: "Delhi, India" },
-                                             { value: "giza", text: "Giza, Egypt" },
-                                             { value: "cuba", text: "Havana, Cuba" },
+                                             { value: "washington", text: "São Luis, MA" },
                                           ]}
                                           defaultCurrent={0}
                                           onChange={handleLocationChange}
@@ -76,7 +67,7 @@ const DropdownFive = ({
                                           <Link href="#" data-bs-toggle="modal" data-bs-target="#advanceFilterModal" className="search-modal-btn sm rounded-circle tran3s text-uppercase fw-500 d-inline-flex align-items-center justify-content-center me-3">
                                              <i className="fa-light fa-sliders-up"></i>
                                           </Link>
-                                          <button className="fw-500 text-uppercase tran3s search-btn w-auto m0">Search</button>
+                                          <button className="fw-500 text-uppercase tran3s search-btn w-auto m0">Buscar</button>
                                        </div>
                                     </div>
                                  </div>

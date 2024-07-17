@@ -111,7 +111,7 @@ const ListingDropdownModal = ({
                                        </div>
                                     </div>
                                     <div className="col-12">
-                                       <h6 className="block-title fw-bold mb-30">Amenities</h6>
+                                       <h6 className="block-title fw-bold mb-30">Amenitiesss</h6>
                                        <ul className="style-none d-flex flex-wrap justify-content-between filter-input">
                                           {ammenities_data.map((list, i) => (
                                              <li key={i}>

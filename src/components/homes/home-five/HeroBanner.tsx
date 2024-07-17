@@ -13,18 +13,13 @@ const HeroBanner = () => {
                <div className="row">
                   <div className="col-lg-7">
                      <div className="position-relative z-1">
-                        <h1 className="hero-heading font-garamond wow fadeInUp mb-50">Zucheratto imoviliaria.</h1>
+                        <h1 className="hero-heading font-garamond wow fadeInUp mb-50">Zucheratto Imobiliaria.</h1>
                         <Image src={bannerShape} alt="" className="lazy-img shape_01 shapes d-none d-lg-block" />
                         <div className="row">
                            <div className="col-xl-7 col-lg-12 col-md-7">
                               <p className="fs-24 color-dark m0 lg-pb-20 wow fadeInUp" data-wow-delay="0.1s">Mais de 300 propriedades, apartamentos, casas, lotes e muito mais</p>
                            </div>
-                           <div className="col-xl-5 col-lg-12 col-md-5">
-                              <div className="d-flex flex-column justify-content-center align-items-start">
-                                 <Image src={bannerImg_1} alt="" className="lazy-img" />
-                                 <p className="m0 pt-10 rating"><span className="fw-500 color-dark">13k rating</span> (4.7 Rating)</p>
-                              </div>
-                           </div>
+                           
                         </div>
                      </div>
                   </div>

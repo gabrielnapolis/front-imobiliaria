@@ -97,7 +97,7 @@ const ListingTwoArea = ({ style }: any) => {
                                     <ul className="style-none d-flex flex-wrap align-items-center justify-content-between">
                                        <li><strong>{item.property_info.sqft}</strong> metros</li>
                                        <li><strong>{item.property_info.bed}</strong> quartos</li>
-                                       <li><strong>{item.property_info.bath}</strong> banehiros</li>
+                                       <li><strong>{item.property_info.bath}</strong> banheiros</li>
                                      
                                     </ul>
                                  </div>
