@@ -147,7 +147,7 @@ const ListingSeventeenArea = () => {
                               </div>
                            </div>
                            <div className="property-info pe-0">
-                              <Link href="/listing_details_02" className="title tran3s mb-15">{item.title}</Link>
+                              <Link href="/detalhes" className="title tran3s mb-15">{item.title}</Link>
                               <div className="address fs-16"><i className="bi bi-geo-alt"></i> {item.address} </div>
                               <div className="feature border-0 mt-45 mb-30">
                                  <ul className="style-none d-flex flex-wrap align-items-center justify-content-between">
@@ -162,7 +162,7 @@ const ListingSeventeenArea = () => {
                                  <ul className="style-none d-flex action-icons on-top">
                                     <li><Link href="#"><i className="fa-light fa-heart"></i></Link></li>
                                  </ul>
-                                 <Link href="/listing_details_02" className="btn-four"><i className="bi bi-arrow-up-right"></i></Link>
+                                 <Link href="/detalhes" className="btn-four"><i className="bi bi-arrow-up-right"></i></Link>
                               </div>
                            </div>
                         </div>

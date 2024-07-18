@@ -1,7 +1,7 @@
 import NiceSelect from "@/ui/NiceSelect"
 import PriceRange from "../../common/PriceRange";
 
-const ammenities_data: string[] = ["A/C & Heating", "Garages", "Garden", "Disabled Access", "Swimming Pool", "Parking", "Wifi", "Pet Friendly", "Ceiling Height", "Fireplace", "Play Ground", "Elevator"]
+const ammenities_data: string[] = ["Ar condicionado", "Garagem", "Jardim", "Elevador","Piscina", "Estacionamento", "Wifi", "Aceita Animais"]
 
 const DropdownOne = ({
    handleBathroomChange,
