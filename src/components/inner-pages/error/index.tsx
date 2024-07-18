@@ -1,10 +1,10 @@
-import HeaderOne from "@/layouts/headers/HeaderOne"
+import HeaderTwo from "@/layouts/headers/HeaderTwo";
 import ErrorArea from "./ErrorArea"
 
 const Error = () => {
    return (
       <>
-         <HeaderOne style={true} />
+         <HeaderTwo style_1={true} style_2={false} />
          <ErrorArea />
       </>
    )

@@ -34,14 +34,14 @@ const DropdownFive = () => {
                      <div className="row gx-0 align-items-center">
                         <div className="col-lg-3">
                            <div className="input-box-one border-left">
-                              <div className="label">Estoy buscando por...</div>
+                              <div className="label">Estou buscando por...</div>
                               <NiceSelect className="nice-select fw-normal"
                                  options={[
-                                    { value: "apartments", text: " Apartmentos" },
-                                    { value: "condos", text: "Escritorios" },
+                                    { value: "apartments", text: " Apartamentos" },
+                                    { value: "condos", text: "Escritórios" },
                                     { value: "houses", text: "Casas" },
                                     { value: "industrial", text: "Industrial" },
-                                    { value: "villas", text: "lotes" },
+                                    { value: "villas", text: "Lotes" },
                                  ]}
                                  defaultCurrent={0}
                                  onChange={selectHandler}
@@ -51,7 +51,7 @@ const DropdownFive = () => {
                         </div>
                         <div className="col-lg-4">
                            <div className="input-box-one border-left">
-                              <div className="label">Localizacao</div>
+                              <div className="label">Localização</div>
                               <NiceSelect className="nice-select location fw-normal"
                                  options={[
                                     { value: "germany", text: "Florianopolis, SC" },
@@ -71,9 +71,9 @@ const DropdownFive = () => {
                               <NiceSelect
                                  className="nice-select fw-normal"
                                  options={[
-                                    { value: "1", text: "R$10,000 - R$200,000" },
-                                    { value: "2", text: "R$20,000 - R$300,000" },
-                                    { value: "3", text: "R$30,000 - R$400,000" },
+                                    { value: "1", text: "R$ 10,000 - R$ 200,000" },
+                                    { value: "2", text: "R$ 20,000 - R$ 300,000" },
+                                    { value: "3", text: "R$ 30,000 - R$ 400,000" },
                                  ]}
                                  defaultCurrent={0}
                                  onChange={selectHandler}
@@ -98,11 +98,11 @@ const DropdownFive = () => {
                               <div className="label">Estou buscando por...</div>
                               <NiceSelect className="nice-select fw-normal"
                                  options={[
-                                    { value: "industrial", text: "Rent Industrial" },
-                                    { value: "apartments", text: "Buy Apartments" },
-                                    { value: "condos", text: "Rent Condos" },
-                                    { value: "houses", text: "Sell Houses" },
-                                    { value: "villas", text: "Sell Villas" },
+                                    { value: "apartments", text: " Apartamentos" },
+                                    { value: "condos", text: "Escritórios" },
+                                    { value: "houses", text: "Casas" },
+                                    { value: "industrial", text: "Industrial" },
+                                    { value: "villas", text: "Lotes" },
                                  ]}
                                  defaultCurrent={0}
                                  onChange={selectHandler}
@@ -112,16 +112,12 @@ const DropdownFive = () => {
                         </div>
                         <div className="col-lg-4">
                            <div className="input-box-one border-left">
-                              <div className="label">Location</div>
+                              <div className="label">Localização</div>
                               <NiceSelect className="nice-select location fw-normal"
                                  options={[
-                                    { value: "france", text: "Cannes, France" },
-                                    { value: "germany", text: "Berlin, Germany" },
-                                    { value: "dhaka", text: "Dhanmondi, Dhaka" },
-                                    { value: "mexico", text: "Acapulco, Mexico" },
-                                    { value: "india", text: "Delhi, India" },
-                                    { value: "giza", text: "Giza, Egypt" },
-                                    { value: "cuba", text: "Havana, Cuba" },
+                                    { value: "germany", text: "Florianopolis, SC" },
+                                    { value: "dhaka", text: "Sao Luis, MA" },
+                                    { value: "mexico", text: "Goiania, GO" },
                                  ]}
                                  defaultCurrent={0}
                                  onChange={selectHandler}
@@ -131,13 +127,13 @@ const DropdownFive = () => {
                         </div>
                         <div className="col-xl-3 col-lg-4">
                            <div className="input-box-one">
-                              <div className="label">Price Rangeadsdasd</div>
+                              <div className="label">Valor</div>
                               <NiceSelect
                                  className="nice-select fw-normal"
                                  options={[
-                                    { value: "1", text: "$10,000 - $200,000" },
-                                    { value: "2", text: "$20,000 - $300,000" },
-                                    { value: "3", text: "$30,000 - $400,000" },
+                                    { value: "1", text: "R$ 10,000 - R$ 200,000" },
+                                    { value: "2", text: "R$ 20,000 - R$ 300,000" },
+                                    { value: "3", text: "R$ 30,000 - R$ 400,000" },
                                  ]}
                                  defaultCurrent={0}
                                  onChange={selectHandler}

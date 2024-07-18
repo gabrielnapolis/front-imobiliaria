@@ -10,7 +10,6 @@ interface MenuItem {
     }[];
     menu_column?: {
         id: number;
-        mega_title: string;
         mega_menus: {
             link: string;
             title: string;
@@ -35,10 +34,9 @@ const menu_data: MenuItem[] = [
         menu_column: [
             {
                 id: 1,
-                mega_title: "Listing Type",
                 mega_menus: [
-                    { link: "/listing_12", title: "Compra" },
-                    { link: "/listing_12", title: "Aluguel" },
+                    { link: "/imoveis", title: "Compra" },
+                    { link: "/imoveis", title: "Aluguel" },
                     { link: "/contact", title: "Venda" },
             
                 ]
@@ -54,12 +52,11 @@ const menu_data: MenuItem[] = [
         menu_column: [
             {
                 id: 1,
-                mega_title: "Essential",
                 mega_menus: [
                
-                    { link: "/contact", title: "Contato" },
+                    { link: "/contato", title: "Contato" },
                     { link: "/faq", title: "Dúvidas Frequêntes" },
-                    { link: "/about_us", title: "Zucheratto Imobiliaria" },
+                    { link: "/sobre_nos", title: "Zucheratto Imobiliaria" },
                 ]
             },
             

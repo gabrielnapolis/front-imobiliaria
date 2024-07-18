@@ -19,9 +19,8 @@ const footer_data: DataType[] = [
     widget_title: "Links",
     footer_link: [
       { link: "/", link_title: "Home" },
-      { link: "/contact", link_title: "Contato" },
-      { link: "/about_us", link_title: "Sobre Nós" },
-      { link: "/dashboard/dashboard-index", link_title: "Dashboard" },
+      { link: "/contato", link_title: "Contato" },
+      { link: "/sobre_nos", link_title: "Sobre Nós" },
     ],
   },
   {

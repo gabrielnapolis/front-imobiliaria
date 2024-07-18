@@ -2,7 +2,6 @@ import FooterFour from "@/layouts/footers/FooterFour";
 import BLockFeatureThree from "./BLockFeatureThree";
 import BLockFeatureTwo from "./BLockFeatureTwo";
 import HeroBanner from "./HeroBanner";
-import HeaderThree from "@/layouts/headers/HeaderThree";
 import HeaderTwo from "@/layouts/headers/HeaderTwo";
 import FancyBanner from "@/components/common/FancyBanner";
 

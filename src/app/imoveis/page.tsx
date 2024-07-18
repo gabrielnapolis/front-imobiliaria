@@ -1,13 +1,13 @@
-import Contact from "@/components/inner-pages/contact";
+import ListingTwelve from "@/components/inner-listing/listing-12";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "Contact Homy - Real Estate React Next js Template",
+   title: "Imóveis - Zucheratto",
 };
 const index = () => {
    return (
       <Wrapper>
-         <Contact />
+         <ListingTwelve />
       </Wrapper>
    )
 }

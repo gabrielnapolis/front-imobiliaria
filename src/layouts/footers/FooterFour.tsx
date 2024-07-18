@@ -5,7 +5,7 @@ import footerShape from "@/assets/images/assets/ils_06.svg"
 import Link from "next/link"
 import footer_data from "@/data/home-data/FooterData"
 
-const FooterFour = () => {
+const  FooterFour = () => {
    return (
       <div className="footer-four position-relative z-1">
          <div className="container container-large">
@@ -19,7 +19,7 @@ const FooterFour = () => {
                            </Link>
                         </div>
                         <p className="mb-30 xs-mb-20">11910 Clyde Rapid Suite 210, Willyand, Virginia, United States</p>
-                        <Link href="#" className="email tran3s mb-60 md-mb-30">zucheratto@gmail.com</Link>
+                        <Link href="#" className="email tran3s mb-60 md-mb-30">lucaszucheratto@hotmail.com</Link>
                         <ul className="style-none d-flex align-items-center social-icon">
                            <li><Link href="#"><i className="fa-brands fa-facebook-f"></i></Link></li>
                            <li><Link href="#"><i className="fa-brands fa-twitter"></i></Link></li>
@@ -42,7 +42,7 @@ const FooterFour = () => {
                </div>
             </div>
             <div className="bottom-footer">
-               <p className="m0 text-center fs-16">Copyright @2024 Homy inc.</p>
+               <p className="m0 text-center fs-16">Copyright @2024 Zucheratto</p>
             </div>
          </div>
          <Image src={footerShape} alt="" className="lazy-img shapes shape_01" />

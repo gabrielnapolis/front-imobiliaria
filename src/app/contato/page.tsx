@@ -1,13 +1,13 @@
-import HomeFive from "@/components/homes/home-five";
+import Contact from "@/components/inner-pages/contact";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
-   title: "Home",
+   title: "Contato - Zucheratto",
 };
 const index = () => {
    return (
       <Wrapper>
-         <HomeFive />
+         <Contact />
       </Wrapper>
    )
 }
