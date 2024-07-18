@@ -13,8 +13,7 @@ const AboutUsTwo = () => {
          <BreadcrumbTwo title="Sobre Nós" sub_title="Sobre Nós" />
          <BLockFeatureOne />
          <BLockFeatureTwo />
-         <Brand />
-         <FancyBanner />
+         {/* <Brand /> */}
          <FooterFour />
       </>
    )
