@@ -41,8 +41,8 @@ const footer_data: DataType[] = [
     page: "home_5",
     widget_title: "Imóveis",
     footer_link: [
-      { link: "/listing_01", link_title: "Compra" },
-      { link: "/listing_02", link_title: "Aluguel" },
+      { link: "/imoveis", link_title: "Compra" },
+      { link: "/imoveis", link_title: "Aluguel" },
     ],
   },
 ];
