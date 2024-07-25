@@ -10,23 +10,22 @@ interface DataType {
 const property_feature_list: DataType[] = [
    {
       id: 1,
-      title: "Property Details",
+      title: "Detalhes da Propriedade",
       feature_list: [
-         { title: "Bedrooms:", count: "03" },
-         { title: "Furnishing:", count: "Semi furnished", },
-         { title: "Bathrooms:", count: "02", },
-         { title: "Year Built:", count: "2010", },
-         { title: "Floor:", count: "Ground", },
-         { title: "Garage:", count: "03", },
+         { title: "Quartos:", count: "03" },
+         { title: "Garagem:", count: "03", },
+         { title: "Banheiros:", count: "02", },
+         { title: "Tipo de Imóvel:", count: "Apartamento", },
+         { title: "Mobiliado:", count: "Semi Mobiliado", },
+         { title: "Ano de Construção:", count: "2010", },
          { title: "Ceiling Height:", count: "3.2m", },
-         { title: "Property Type:", count: "Apartment", },
          { title: "Renovation:", count: "3.2m", },
-         { title: "Status:", count: "For Sale", },
+         { title: "Status:", count: "À Venda", },
       ],
    },
    {
       id: 2,
-      title: "Utility Details",
+      title: "Utilidades",
       feature_list: [
          { title: "Heating:", count: "Natural gas", },
          { title: "Intercom:", count: "Yes", },
@@ -41,7 +40,7 @@ const property_feature_list: DataType[] = [
    },
    {
       id: 3,
-      title: "Outdoor Features",
+      title: "Recursos Externos",
       feature_list: [
          { title: "Garage:", count: "Yes", },
          { title: "Parking:", count: "Yes", },

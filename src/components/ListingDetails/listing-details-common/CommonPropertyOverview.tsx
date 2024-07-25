@@ -16,27 +16,27 @@ const property_overview_data: DataType[] = [
    {
       id: 1,
       icon: icon_1,
-      title: "Sqft . 3,720",
+      title: "m² . 3,720",
    },
    {
       id: 2,
       icon: icon_2,
-      title: "Bed . 03",
+      title: "Quartos . 03",
    },
    {
       id: 3,
       icon: icon_3,
-      title: "Bath . 2",
+      title: "Banheiros . 2",
    },
    {
       id: 4,
       icon: icon_4,
-      title: "Kitchen . 01",
+      title: "Cozinha . 01",
    },
    {
       id: 5,
       icon: icon_5,
-      title: "Type . Apartment",
+      title: "Tipo . Apartamento",
    },
 ]
 

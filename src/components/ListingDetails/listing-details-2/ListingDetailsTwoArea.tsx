@@ -35,7 +35,7 @@ const ListingDetailsTwoArea = () => {
         <div className="row">
           <div className="col-xl-8">
             <div className="property-overview bg-white shadow4 border-20 p-40 mb-50">
-              <h4 className="mb-20">Overview</h4>
+              <h4 className="mb-20">Visão Geral</h4>
               <p className="fs-20 lh-lg">
                 Lorem ipsum dolor sit amet consectetur. Et velit varius ipsum
                 tempor vel dignissim tincidunt. Aliquam accumsan laoreet
@@ -44,7 +44,7 @@ const ListingDetailsTwoArea = () => {
               </p>
             </div>
             <div className="property-feature-accordion bg-white shadow4 border-20 p-40 mb-50">
-              <h4 className="mb-20">Property Features</h4>
+              <h4 className="mb-20">Características</h4>
               <p className="fs-20 lh-lg">
                 Risk management and compliance, when approached strategically,
                 have the potential to go beyond mitigating threats.

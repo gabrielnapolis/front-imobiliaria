@@ -11,7 +11,7 @@ import icon from "@/assets/images/icon/icon_46.svg"
 
 const ListingTwoArea = ({ style }: any) => {
 
-   const itemsPerPage = 5;
+   const itemsPerPage = 8;
    const page = "listing_3";
 
    const {
@@ -45,28 +45,25 @@ const ListingTwoArea = ({ style }: any) => {
                <div className="col-lg-8">
                   <div className="ps-xxl-5">
                      <div className="listing-header-filter d-sm-flex justify-content-between align-items-center mb-40 lg-mb-30">
-                        <div>Showing <span className="color-dark fw-500">{itemOffset + 1}–{itemOffset + currentItems.length}</span> of <span
-                           className="color-dark fw-500">{sortedProperties.length}</span> results</div>
+                        <div>Mostrando <span className="color-dark fw-500">{itemOffset + 1}–{itemOffset + currentItems.length}</span> de <span
+                           className="color-dark fw-500">{sortedProperties.length}</span> resultados</div>
                         <div className="d-flex align-items-center xs-mt-20">
                            <div className="short-filter d-flex align-items-center">
-                              <div className="fs-16 me-2">Short by:</div>
+                              <div className="fs-16 me-2">Filtre por:</div>
                               <NiceSelect
                                  className="nice-select"
                                  options={[
-                                    { value: "newest", text: "Newest" },
-                                    { value: "best_seller", text: "Best Seller" },
-                                    { value: "best_match", text: "Best Match" },
-                                    { value: "price_low", text: "Price Low" },
-                                    { value: "price_high", text: "Price High" },
+                                    { value: "newest", text: "Mais Novo" },
+                                    { value: "best_seller", text: "Mais Vendido" },
+                                    // { value: "best_match", text: "Best Match" },
+                                    { value: "price_low", text: "Menor Preço" },
+                                    { value: "price_high", text: "Maior Preço" },
                                  ]}
                                  defaultCurrent={0}
                                  onChange={handleTypeChange}
                                  name=""
                                  placeholder="" />
                            </div>
-                           <Link href="/listing_01" className="tran3s layout-change rounded-circle ms-auto ms-sm-3"
-                              data-bs-toggle="tooltip" title="Switch To Grid View"><i
-                                 className="fa-regular fa-grid-2"></i></Link>
                         </div>
                      </div>
 
@@ -102,7 +99,7 @@ const ListingTwoArea = ({ style }: any) => {
                                     </ul>
                                  </div>
                                  <div className="pl-footer d-flex flex-wrap align-items-center justify-content-between">
-                                    <strong className="price fw-500 color-dark me-auto">${item.price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 })}{item.price_text && <>/<sub>m</sub></>}</strong>
+                                    <strong className="price fw-500 color-dark me-auto">R$ {item.price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 })}{item.price_text && <>/<sub>m</sub></>}</strong>
 
                                     <ul className="style-none d-flex action-icons me-4">
                                        <li><Link href="#"><i className="fa-light fa-heart"></i></Link></li>
