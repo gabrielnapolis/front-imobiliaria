@@ -57,7 +57,6 @@ const DropdownFive = () => {
                                     { value: "germany", text: "Florianopolis, SC" },
                                     { value: "dhaka", text: "Sao Luis, MA" },
                                     { value: "mexico", text: "Goiania, GO" },
-                              
                                  ]}
                                  defaultCurrent={0}
                                  onChange={selectHandler}

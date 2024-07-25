@@ -100,12 +100,6 @@ const ListingTwoArea = ({ style }: any) => {
                                  </div>
                                  <div className="pl-footer d-flex flex-wrap align-items-center justify-content-between">
                                     <strong className="price fw-500 color-dark me-auto">R$ {item.price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 })}{item.price_text && <>/<sub>m</sub></>}</strong>
-
-                                    <ul className="style-none d-flex action-icons me-4">
-                                       <li><Link href="#"><i className="fa-light fa-heart"></i></Link></li>
-                                       <li><Link href="#"><i className="fa-light fa-bookmark"></i></Link></li>
-                                       <li><Link href="#"><i className="fa-light fa-circle-plus"></i></Link></li>
-                                    </ul>
                                     <Link href="/detalhes" className="btn-four rounded-circle">
                                        <i className="bi bi-arrow-up-right"></i>
                                     </Link>
