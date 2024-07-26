@@ -24,8 +24,24 @@ const DropdownOne = ({
                   <div className="label">Estou buscando por...</div>
                   <NiceSelect className="nice-select fw-normal"
                      options={[
-                        { value: "apartments", text: "Apartamentos" },
-                        { value: "condos", text: "Casas" },
+                        { value: "Aluguel", text: "Aluguel" },
+                        { value: "Venda", text: "Venda" },
+                     ]}
+                     defaultCurrent={0}
+                     onChange={handleStatusChange}
+                     name=""
+                     placeholder="" />
+               </div>
+            </div>
+
+            <div className="col-12">
+               <div className="input-box-one mb-35">
+                  <div className="label">Tipo de Imóvel</div>
+                  <NiceSelect className="nice-select fw-normal"
+                     options={[
+                        { value: "Apartamentos", text: "Apartamentos" },
+                        { value: "Casas", text: "Casas" },
+                        { value: "Condomínio", text: "Condomínio" },
                      ]}
                      defaultCurrent={0}
                      onChange={handleStatusChange}

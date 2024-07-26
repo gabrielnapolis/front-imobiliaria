@@ -37,8 +37,6 @@ const menu_data: MenuItem[] = [
                 mega_menus: [
                     { link: "/imoveis", title: "Compra" },
                     { link: "/imoveis", title: "Aluguel" },
-                    { link: "/contact", title: "Venda" },
-            
                 ]
             },
         ]

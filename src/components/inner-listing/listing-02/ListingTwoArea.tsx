@@ -71,7 +71,7 @@ const ListingTwoArea = ({ style }: any) => {
                         <div key={item.id} className={`listing-card-seven border-20 p-20 mb-50 wow fadeInUp ${style ? "grey-bg" : ""}`}>
                            <div className="d-flex flex-wrap layout-one">
                               <div className={`img-gallery position-relative z-1 border-20 overflow-hidden ${item.bg_img}`}>
-                                 <div className={style ? "tag bg-white rounded-0 text-dark fw-500" : `border-20 tag ${item.tag_bg}`}>{item.tag}</div>
+                                 <div className={style ? "tag bg-white rounded-0 text-dark fw-500" : `border-20 tag`}>{item.status}</div>
                                  <div className="img-slider-btn">
                                     03 <i className="fa-regular fa-image"></i>
                                     <Fancybox
@@ -92,14 +92,15 @@ const ListingTwoArea = ({ style }: any) => {
                                  <div className="address">{item.address}</div>
                                  <div className="feature mt-30 mb-30 pt-30 pb-5">
                                     <ul className="style-none d-flex flex-wrap align-items-center justify-content-between">
-                                       <li><strong>{item.property_info.sqft}</strong> metros</li>
-                                       <li><strong>{item.property_info.bed}</strong> quartos</li>
-                                       <li><strong>{item.property_info.bath}</strong> banheiros</li>
-                                     
+                                       <li><strong>{item.property_info.sqft}</strong>metros</li>
+                                       <li><strong>{item.property_info.bed}</strong>quartos</li>
+                                       <li><strong>{item.property_info.bath}</strong>banheiros</li>         
                                     </ul>
                                  </div>
                                  <div className="pl-footer d-flex flex-wrap align-items-center justify-content-between">
-                                    <strong className="price fw-500 color-dark me-auto">R$ {item.price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 })}{item.price_text && <>/<sub>m</sub></>}</strong>
+                                    <strong className="price fw-500 color-dark me-auto">R$
+                                    {item.price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                    </strong>
                                     <Link href="/detalhes" className="btn-four rounded-circle">
                                        <i className="bi bi-arrow-up-right"></i>
                                     </Link>
