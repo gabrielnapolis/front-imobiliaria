@@ -56,11 +56,11 @@ const ListingDropdownModal = ({
                             <NiceSelect
                               className="nice-select fw-normal"
                               options={[
-                                { value: "apartments", text: "Apartamentos" },
-                                { value: "condos", text: "Condomínos" },
-                                { value: "houses", text: "Casas" },
-                                { value: "industrial", text: "Aluguel" },
-                                { value: "villas", text: "Compra" },
+                                { value: "Apartamentos", text: "Apartamentos" },
+                                { value: "Condomínos", text: "Condomínos" },
+                                { value: "Casas", text: "Casas" },
+                                { value: "Aluguel", text: "Aluguel" },
+                                { value: "Compra", text: "Compra" },
                               ]}
                               defaultCurrent={0}
                               onChange={handleStatusChange}
@@ -92,7 +92,7 @@ const ListingDropdownModal = ({
                             <input
                               onChange={handleSearchChange}
                               type="text"
-                              placeholder="buy, home, loft, apartment"
+                              placeholder="comprar, casa, condomínio, apartamento"
                               className="type-input"
                             />
                           </div>

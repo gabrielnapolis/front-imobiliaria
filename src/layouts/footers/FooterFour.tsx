@@ -21,9 +21,16 @@ const  FooterFour = () => {
                         <p className="mb-30 xs-mb-20">11910 Clyde Rapid Suite 210, Willyand, Virginia, United States</p>
                         <Link href="#" className="email tran3s mb-60 md-mb-30">lucaszucheratto@hotmail.com</Link>
                         <ul className="style-none d-flex align-items-center social-icon">
-                           <li><Link href="#"><i className="fa-brands fa-facebook-f"></i></Link></li>
-                           <li><Link href="#"><i className="fa-brands fa-twitter"></i></Link></li>
-                           <li><Link href="#"><i className="fa-brands fa-instagram"></i></Link></li>
+                           <li>
+                              <Link href="https://www.facebook.com/zucherattoeng" target="_blank">
+                              <i className="fa-brands fa-facebook-f"></i>
+                              </Link>
+                           </li>
+                           <li>
+                              <Link href="https://www.instagram.com/zucherattoengimob?utm_source=qr&igsh=MXBnaHAxN29veXU2cg%3D%3D" target="_blank">
+                              <i className="fa-brands fa-instagram"></i>
+                              </Link>
+                           </li>
                         </ul>
                      </div>
                   </div>

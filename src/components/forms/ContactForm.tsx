@@ -49,26 +49,26 @@ const ContactForm = () => {
          <div className="row controls">
             <div className="col-12">
                <div className="input-group-meta form-group mb-30">
-                  <label htmlFor="">Name*</label>
-                  <input type="text" {...register("user_name")} name="user_name" placeholder="Your Name*" />
+                  <label htmlFor="">Nome*</label>
+                  <input type="text" {...register("user_name")} name="user_name" placeholder="Seu Nome*" />
                   <p className="form_error">{errors.user_name?.message}</p>
                </div>
             </div>
             <div className="col-12">
                <div className="input-group-meta form-group mb-40">
                   <label htmlFor="">Email*</label>
-                  <input type="email" {...register("user_email")} placeholder="Email Address*" name="user_email" />
+                  <input type="email" {...register("user_email")} placeholder="Email*" name="user_email" />
                   <p className="form_error">{errors.user_email?.message}</p>
                </div>
             </div>
             <div className="col-12">
                <div className="input-group-meta form-group mb-35">
-                  <textarea {...register("message")} placeholder="Your message*"></textarea>
+                  <textarea {...register("message")} placeholder="Sua mensagem*"></textarea>
                   <p className="form_error">{errors.message?.message}</p>
                </div>
             </div>
             <div className="col-12">
-               <button type='submit' className="btn-nine text-uppercase rounded-3 fw-normal w-100">Send Message</button>
+               <button type='submit' className="btn-nine text-uppercase rounded-3 fw-normal w-100">Enviar</button>
             </div>
          </div>
       </form>

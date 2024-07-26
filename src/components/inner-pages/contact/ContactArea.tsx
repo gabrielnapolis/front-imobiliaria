@@ -15,20 +15,19 @@ interface DataType {
 const address_data: DataType[] = [
    {
       id: 1,
-      title: "We’r always happy to help.",
-      address_1: "ask@homy.com"
+      title: "Estamos sempre felizes em ajudar.",
+      address_1: "lucaszucheratto@hotmail.com"
    },
    {
       id: 2,
       class_name: "skew-line",
-      title: "Our hotline number",
-      address_1: "+757 699 4478,",
-      address_2: "+991 377 9731",
+      title: "Nosso número.",
+      address_1: "(98) 8522-4252",
    },
    {
       id: 3,
-      title: "Live chat",
-      address_1: "www.homylivechat.com"
+      title: "Localização.",
+      address_1: "***Endereço***"
    },
 ]
 
@@ -39,7 +38,7 @@ const ContactArea = () => {
             <div className="row">
                <div className="col-xxl-9 col-xl-8 col-lg-10 m-auto">
                   <div className="title-one text-center wow fadeInUp">
-                     <h3>Questions? Feel Free to Reach Out Via Message.</h3>
+                     <h3>Dúvidas? Sinta-se à vontade para entrar em contato</h3>
                   </div>
                </div>
             </div>

@@ -53,7 +53,7 @@ const listing_data: PropertieType[] = [
       { id: "2", img: propertyLargeThumb_2 },
       { id: "3", img: propertyLargeThumb_3 },
     ],
-    amenities: ["Garages", "Parking", "Wifi", "Elevator"],
+    amenities: ["Garagem", "Jardim", "Wifi", "Elevator"],
   },
   {
     id: 2,
@@ -74,14 +74,7 @@ const listing_data: PropertieType[] = [
     bed: "01",
     bath: "01",
     kitchen: "01",
-    amenities: [
-      "Swimming Pool",
-      "Parking",
-      "Wifi",
-      "Fireplace",
-      "Play Ground",
-      "Elevator",
-    ],
+    amenities: ["Garagem", "Jardim", "Wifi", "Elevator"],
   },
   {
     id: 3,
@@ -101,16 +94,7 @@ const listing_data: PropertieType[] = [
     bed: "03",
     bath: "01",
     kitchen: "01",
-    amenities: [
-      "Swimming Pool",
-      "Parking",
-      "Wifi",
-      "Pet Friendly",
-      "Ceiling Height",
-      "Fireplace",
-      "Play Ground",
-      "Elevator",
-    ],
+    amenities: ["Garagem", "Jardim", "Wifi", "Elevator"],
   },
   // {
   //    id: 4,
