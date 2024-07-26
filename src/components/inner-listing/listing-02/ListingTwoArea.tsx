@@ -88,13 +88,13 @@ const ListingTwoArea = ({ style }: any) => {
                                  </div>
                               </div>
                               <div className="property-info">
-                                 <Link href="/detalhes" className="title tran3s mb-15">{item.title}</Link>
+                                 <Link href="/detalhes" className="title tran3s mb-15">{item.name}</Link>
                                  <div className="address">{item.address}</div>
                                  <div className="feature mt-30 mb-30 pt-30 pb-5">
                                     <ul className="style-none d-flex flex-wrap align-items-center justify-content-between">
-                                       <li><strong>{item.property_info.sqft}</strong>metros</li>
-                                       <li><strong>{item.property_info.bed}</strong>quartos</li>
-                                       <li><strong>{item.property_info.bath}</strong>banheiros</li>         
+                                       <li><strong>{item.sqft}</strong>metros</li>
+                                       <li><strong>{item.bed}</strong>quartos</li>
+                                       <li><strong>{item.bath}</strong>banheiros</li>         
                                     </ul>
                                  </div>
                                  <div className="pl-footer d-flex flex-wrap align-items-center justify-content-between">
