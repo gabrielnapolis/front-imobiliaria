@@ -2,20 +2,29 @@ import UseProperty from "@/hooks/UseProperty";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectProperties } from "@/redux/features/propertySlice";
-import listing_data from "@/data/inner-data/ListingData";
+import listing_data, { PropertieType } from "@/data/inner-data/ListingData";
+import { getAllProperties } from "@/app/imoveis/actions";
 
 interface DataType {
    itemsPerPage: number;
    page: string;
 }
 
-const UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
-
+const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
+   
    let all_property = listing_data;
 
+   // let all_property:PropertieType[] = [];
+
+   // getAllProperties().then(data => {
+   //    setProperties(data) 
+   // });
+
+   // console.log(properties);
+
+   
    const { properties, setProperties } = UseProperty();
    const filteredProperties = properties.filter((item) => item.page === page);
-
    const [itemOffset, setItemOffset] = useState(0);
    const [sortOption, setSortOption] = useState<string>("");
    const [status, setStatus] = useState<string | null>(null);

@@ -6,14 +6,13 @@ import NiceSelect from "@/ui/NiceSelect"
 import UseShortedProperty from "@/hooks/useShortedProperty"
 import Fancybox from "@/components/common/Fancybox"
 import DropdownOne from "@/components/search-dropdown/inner-dropdown/DropdownOne"
-
 import icon from "@/assets/images/icon/icon_46.svg"
+import { PropertieType } from "@/data/inner-data/ListingData"
 
 const ListingTwoArea = ({ style }: any) => {
 
    const itemsPerPage = 8;
    const page = "listing_3";
-
    const {
       itemOffset,
       sortedProperties,
@@ -70,9 +69,9 @@ const ListingTwoArea = ({ style }: any) => {
                      {currentItems.map((item: any) => (
                         <div key={item.id} className={`listing-card-seven border-20 p-20 mb-50 wow fadeInUp ${style ? "grey-bg" : ""}`}>
                            <div className="d-flex flex-wrap layout-one">
-                              <div className={`img-gallery position-relative z-1 border-20 overflow-hidden ${item.bg_img}`}>
+                              <div className={`img-gallery position-relative z-1 border-20 overflow-hidden ${item.url_img}`}>
                                  <div className={style ? "tag bg-white rounded-0 text-dark fw-500" : `border-20 tag`}>{item.status}</div>
-                                 <div className="img-slider-btn">
+                                 {/* <div className="img-slider-btn">
                                     03 <i className="fa-regular fa-image"></i>
                                     <Fancybox
                                        options={{
@@ -85,14 +84,14 @@ const ListingTwoArea = ({ style }: any) => {
                                           <a key={index} className="d-block" data-fancybox="gallery2" href={`/assets/images/listing/img_large_0${thumb.id}.jpg`}></a>
                                        ))}
                                     </Fancybox>
-                                 </div>
+                                 </div> */}
                               </div>
                               <div className="property-info">
                                  <Link href="/detalhes" className="title tran3s mb-15">{item.name}</Link>
                                  <div className="address">{item.address}</div>
                                  <div className="feature mt-30 mb-30 pt-30 pb-5">
                                     <ul className="style-none d-flex flex-wrap align-items-center justify-content-between">
-                                       <li><strong>{item.sqft}</strong>metros</li>
+                                       <li><strong>{item.mts}</strong>metros</li>
                                        <li><strong>{item.bed}</strong>quartos</li>
                                        <li><strong>{item.bath}</strong>banheiros</li>         
                                     </ul>
