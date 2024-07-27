@@ -39,8 +39,9 @@ const DropdownFive = ({
                                        <div className="label">Estou buscando por...</div>
                                        <NiceSelect className="nice-select"
                                           options={[
-                                             { value: "apartments", text: "Apartmentos" },
-                                             { value: "condos", text: "Casas" },
+                                             { value: "apartmentos", text: "Apartamentos" },
+                                             { value: "casas", text: "Casas" },
+                                             { value: "condos", text: "Condomínos" },
                                           ]}
                                           defaultCurrent={0}
                                           onChange={handleStatusChange}

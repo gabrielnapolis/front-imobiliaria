@@ -14,7 +14,8 @@ const BLockFeatureOne = () => {
                   <div className="ms-xxl-5 ps-xl-4 ps-lg-5 md-mb-50">
                      <div className="title-one mb-45 lg-mb-20">
                         <h2 className="font-garamond star-shape">Zucheratto Imobiliaria. 
-                        <span className="star-shape"><Image src={titleShape} alt="" className="lazy-img" /></span></h2>
+                        <span className="star-shape"><Image src={titleShape} alt="" className="lazy-img" /></span>
+                        </h2>
                      </div>
                      <div className="accordion-style-three">
                         <div className="accordion" id="accordionThree">
@@ -27,7 +28,6 @@ const BLockFeatureOne = () => {
                <div className="col-xl-6 col-lg-5 d-lg-flex wow fadeInLeft">
                   <div className="media-block h-100 w-100 pe-xl-5">
                      <div className="bg-img position-relative" style={{ backgroundImage: `url(/assets/images/media/img_52.jpg)` }}>
-                        <Image src={featureImg} alt="" className="lazy-img shapes screen_01" />
                      </div>
                   </div>
                </div>

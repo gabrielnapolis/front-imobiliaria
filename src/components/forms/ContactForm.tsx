@@ -44,7 +44,7 @@ const ContactForm = () => {
 
    return (
       <form ref={form} onSubmit={handleSubmit(sendEmail)}>
-         <h3>Send Message</h3>
+         <h3>Fale Conosco</h3>
          <div className="messages"></div>
          <div className="row controls">
             <div className="col-12">

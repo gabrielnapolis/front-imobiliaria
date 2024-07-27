@@ -1,4 +1,4 @@
-import AboutUsTwo from "@/components/inner-pages/about-us/about-us-two";
+import AboutUs from "@/components/inner-pages/about-us";
 import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
@@ -7,7 +7,7 @@ export const metadata = {
 const index = () => {
    return (
       <Wrapper>
-         <AboutUsTwo />
+         <AboutUs />
       </Wrapper>
    )
 }
