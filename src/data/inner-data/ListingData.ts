@@ -11,17 +11,27 @@ interface PropertieType {
   name: string;
   description?: string;
   price: number;
-  type: string;
+  propertyType: string;
   status: string;
-  address?: string;
-  location: string;
-  amenities?: string[];
-  sqft: number;
+  mts: number;
   bed: string;
   bath: string;
   kitchen?: string;
   parking?: string;
   garden?: string;
+  hvac?: boolean;
+  garages?: number;
+  playground?: boolean;
+  elevator?: boolean;
+  swimmimgpool?: boolean;
+  ceilingHeight?: number;
+  address?: string;
+  location: string;
+  city?: string;
+  state?: string;
+  neighborhood?: string;
+  streetAdress?: string;
+
   thumb?: StaticImageData;
   bg_img?: string;
   page: string;
@@ -31,6 +41,9 @@ interface PropertieType {
     img: StaticImageData;
     active?: string;
   }[];
+
+  amenities?: string[];
+  
 }
 [];
 
@@ -38,12 +51,12 @@ const listing_data: PropertieType[] = [
   {
     id: 1,
     name: "Marbel Apartments",
-    type: "Condomínio",
+    propertyType: "Condomínio",
     price: 24000,
     status: "Aluguel",
     address: "Twin tower, Acapulco, Mexico",
     location: "Acapulco, TESTE",
-    sqft: 1370,
+    mts: 1370,
     bed: "04",
     bath: "01",
     kitchen: "01",
@@ -58,7 +71,7 @@ const listing_data: PropertieType[] = [
   {
     id: 2,
     name: "White House villa",
-    type: "Casa",
+    propertyType: "Casa",
     price: 2370,
     status: "Venda",
     address: "Issaquah, Washington DC",
@@ -70,7 +83,7 @@ const listing_data: PropertieType[] = [
       { id: "2", img: propertyLargeThumb_2 },
       { id: "1", img: propertyLargeThumb_1 },
     ],
-    sqft: 1170,
+    mts: 1170,
     bed: "01",
     bath: "01",
     kitchen: "01",
@@ -80,7 +93,7 @@ const listing_data: PropertieType[] = [
     id: 3,
     name: "Luxury villa Dal lake",
     status: "Venda",
-    type: "Casa",
+    propertyType: "Casa",
     price: 43000,
     address: "44 Elmessaha Street Dokki, Giza,Egypt",
     location: "Giza, Egypt",
@@ -90,7 +103,7 @@ const listing_data: PropertieType[] = [
       { id: "1", img: propertyLargeThumb_1 },
       { id: "3", img: propertyLargeThumb_3 },
     ],
-    sqft: 1070,
+    mts: 1070,
     bed: "03",
     bath: "01",
     kitchen: "01",

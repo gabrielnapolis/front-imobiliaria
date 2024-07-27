@@ -14,7 +14,7 @@ const DropdownFive = () => {
    };
 
    const searchHandler = () => {
-      window.location.href = '/listing_05';
+      window.location.href = '/imoveis';
    };
 
    return (

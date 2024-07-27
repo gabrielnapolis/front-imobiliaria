@@ -2,7 +2,6 @@ import Image from "next/image"
 import DropdownFive from "@/components/search-dropdown/home-dropdown/DropdownFive"
 
 import bannerShape from "@/assets/images/shape/shape_54.svg"
-import bannerImg_1 from "@/assets/images/assets/screen_06.png"
 import bannerImg_2 from "@/assets/images/assets/ils_05.svg"
 
 const HeroBanner = () => {
