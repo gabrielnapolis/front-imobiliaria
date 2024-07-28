@@ -15,7 +15,7 @@ const PropertyListBody = () => {
       <div className="dashboard-body">
          <div className="position-relative">
             <DashboardHeaderTwo title="My Properties" />
-            <h2 className="main-title d-block d-lg-none">My Properties</h2>
+            <h2 className="main-title d-block d-lg-none">Minhas Propriedades</h2>
             <div className="d-sm-flex align-items-center justify-content-between mb-25">
                <div className="fs-16">Showing <span className="color-dark fw-500">1–5</span> of <span
                   className="color-dark fw-500">40</span> results</div>
