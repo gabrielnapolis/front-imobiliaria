@@ -9,7 +9,7 @@ import DropdownOne from "@/components/search-dropdown/inner-dropdown/DropdownOne
 import icon from "@/assets/images/icon/icon_46.svg"
 import { PropertieType } from "@/data/inner-data/ListingData"
 
-const ListingTwoArea = ({ style }: any) => {
+const ListingTwoArea =  ({ style }: any) => {
 
    const itemsPerPage = 8;
    const page = "listing_3";
@@ -31,7 +31,7 @@ const ListingTwoArea = ({ style }: any) => {
       handleLocationChange,
       handleStatusChange,
       handleTypeChange,
-   } = UseShortedProperty({ itemsPerPage, page });
+   } =  UseShortedProperty({ itemsPerPage, page });
 
    const handleResetFilter = () => {
       resetFilters();

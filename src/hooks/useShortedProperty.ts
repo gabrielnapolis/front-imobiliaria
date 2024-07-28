@@ -11,20 +11,15 @@ interface DataType {
 }
 
 const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
-   
-   let all_property = listing_data;
 
-   // let all_property:PropertieType[] = [];
 
-   // getAllProperties().then(data => {
-   //    setProperties(data) 
-   // });
+    let all_property:PropertieType[] = [];
 
-   // console.log(properties);
 
+   console.log(all_property)
    
    const { properties, setProperties } = UseProperty();
-   const filteredProperties = properties.filter((item) => item.page === page);
+   const filteredProperties = properties;
    const [itemOffset, setItemOffset] = useState(0);
    const [sortOption, setSortOption] = useState<string>("");
    const [status, setStatus] = useState<string | null>(null);
@@ -78,6 +73,9 @@ const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
 
    useEffect(() => {
       // This block will be executed after selectedAmenities has been updated.
+      getAllProperties().then(data=>{setProperties(data)
+         all_property=data;
+      })
       setItemOffset(0);
    }, [selectedAmenities]);
 
@@ -152,16 +150,19 @@ const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
    const filteredAllProduct = allProperties.filter(item => item.page === "listing_1");
 
    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-      const searchingProducts = filteredAllProduct.filter((p) =>
-         p.title.toLowerCase().includes(e.target.value.toLowerCase())
-      );
-      setProperties(searchingProducts);
+      getAllProperties().then(()=>{
+         const searchingProducts = filteredAllProduct.filter((p) =>
+            p.title.toLowerCase().includes(e.target.value.toLowerCase())
+         );
+         setProperties(searchingProducts);
+      }
+       
+      )
+  
    };
 
    // handle Price
-   const maxPrice = all_property.filter(item => item.page === page).reduce((max, item) => {
-      return item.price > max ? item.price : max;
-   }, 0);
+   const maxPrice =50000000
    const [priceValue, setPriceValue] = useState([0, maxPrice]);
 
    useEffect(() => {

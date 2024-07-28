@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import properties from '@/data/inner-data/ListingData';
 
 interface Property {
    id: number;
@@ -11,7 +10,7 @@ interface PropertyState {
 }
 
 const initialState: PropertyState = {
-   properties: properties,
+   properties: [],
    property: {},
 };
 
