@@ -46,25 +46,22 @@ const DashboardHeaderOne = ({ isActive, setIsActive }: any) => {
                   </Link></li>
                 
                   <li className="bottom-line pt-30 lg-pt-20 mb-40 lg-mb-30"></li>
-                  <li><div className="nav-title">Profile</div></li>
-                  <li className="plr"><Link href="/dashboard/profile" className={`d-flex w-100 align-items-center ${pathname === '/dashboard/profile' ? 'active' : ''}`}>
-                     <Image src={pathname === '/dashboard/profile' ? dashboardIconActive_3 : dashboardIcon_3} alt="" />
-                     <span>Profile</span>
-                  </Link></li>
+               
+            
                   <li className="plr"><Link href="/dashboard/account-settings" className={`d-flex w-100 align-items-center ${pathname === '/dashboard/account-settings' ? 'active' : ''}`}>
                      <Image src={pathname === '/dashboard/account-settings' ? dashboardIconActive_4 : dashboardIcon_4} alt="" />
-                     <span>Account Settings</span>
+                     <span>Conta</span>
                   </Link></li>
          
                   <li className="bottom-line pt-30 lg-pt-20 mb-40 lg-mb-30"></li>
-                  <li><div className="nav-title">Listing</div></li>
+               
                   <li className="plr"><Link href="/dashboard/properties-list" className={`d-flex w-100 align-items-center ${pathname === '/dashboard/properties-list' ? 'active' : ''}`}>
                      <Image src={pathname === '/dashboard/properties-list' ? dashboardIconActive_6 : dashboardIcon_6} alt="" />
-                     <span>My Properties</span>
+                     <span>Propiedades</span>
                   </Link></li>
                   <li className="plr"><Link href="/dashboard/add-property" className={`d-flex w-100 align-items-center ${pathname === '/dashboard/add-property' ? 'active' : ''}`}>
                      <Image src={pathname === '/dashboard/add-property' ? dashboardIconActive_7 : dashboardIcon_7} alt="" />
-                     <span>Add New Property</span>
+                     <span>Adicionar nova propriedade</span>
                   </Link></li>
             
                  
