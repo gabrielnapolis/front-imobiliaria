@@ -1,16 +1,10 @@
 import { PropertieType } from "@/data/inner-data/ListingData";
+import { CreatePropertyDto } from "@/types/createPropertyDto";
 import axios from 'axios';
 
 
 
 
-export async function getPropertiesByID(id: string) {
-  const url = `http://localhost:3001/properties/${id}`;
-  const res = await fetch(url);
-  const data = await res.json();
-
-  return data;
-}
 
 const get = async ( url: string , options = {}) => {
     const axiosInstance = axios.create({
@@ -58,9 +52,9 @@ export async function login(email:string, password:string) {
 
 
 }
-export async function addProperty(property:any) {
+export async function addProperty(property:CreatePropertyDto) {
     const url = "/properties";
-    const res =await post(url)
+    const res =await post(url,property)
     console.log(res)
       return res;
   
