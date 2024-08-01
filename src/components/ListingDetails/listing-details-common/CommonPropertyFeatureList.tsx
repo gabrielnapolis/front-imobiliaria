@@ -41,7 +41,7 @@ const CommonPropertyFeatureList = ({ params }: { params: { property: any } }) =>
          neighborhood: { category: 'details', featureTitle: "Bairro", count: (value) => value },
          streetAdress: { category: 'details', featureTitle: "Endereço", count: (value) => value },
          security: { category: 'external', featureTitle: "Segurança", count: (value) => value },
-         pcdAccess: { category: 'external', featureTitle: "Acessibilidade para PCD", count: (value) => value.toString() },
+         pcdAccess: { category: 'external', featureTitle: "Acessibilidade para PCD", count: (value) => value ? "Sim" : "Não" },
          furnished: { category: 'details', featureTitle: "Mobiliado", count: (value) => value ? "Sim" : "Não" },
          wifi: { category: 'details', featureTitle: "WiFi", count: (value) => value ? "Sim" : "Não" },
          petAllowed: { category: 'external', featureTitle: "Aceita Animais", count: (value) => value ? "Sim" : "Não" }

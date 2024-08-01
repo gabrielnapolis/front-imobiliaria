@@ -8,39 +8,20 @@ const AddressAndLocation = () => {
 
    return (
       <div className="bg-white card-box border-20 mt-40">
-         <h4 className="dash-title-three">Address & Location</h4>
+         <h4 className="dash-title-three">Endereço e Localização</h4>
          <div className="row">
             <div className="col-12">
                <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">Address*</label>
-                  <input type="text" placeholder="19 Yawkey Way" />
+                  <label htmlFor="">Endereço*</label>
+                  <input type="text" placeholder="Av, Rua, Quadra, Lote, N°" />
                </div>
             </div>
             <div className="col-lg-3">
                <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">Country*</label>
+                  <label htmlFor="">País*</label>
                   <NiceSelect className="nice-select"
                      options={[
-                        { value: "1", text: "Afghanistan" },
-                        { value: "2", text: "Albania" },
-                        { value: "3", text: "Algeria" },
-                        { value: "4", text: "Andorra" },
-                        { value: "5", text: "Angola" },
-                        { value: "6", text: "Antigua and Barbuda" },
-                        { value: "7", text: "Argentina" },
-                        { value: "8", text: "Armenia" },
-                        { value: "9", text: "Australia" },
-                        { value: "10", text: "Austria" },
-                        { value: "11", text: "Azerbaijan" },
-                        { value: "12", text: "Bahamas" },
-                        { value: "13", text: "Bahrain" },
-                        { value: "14", text: "Bangladesh" },
-                        { value: "15", text: "Barbados" },
-                        { value: "16", text: "Belarus" },
-                        { value: "17", text: "Belgium" },
-                        { value: "18", text: "Belize" },
-                        { value: "19", text: "Benin" },
-                        { value: "20", text: "Bhutan" },
+                        { value: "1", text: "Brasil" },
                      ]}
                      defaultCurrent={0}
                      onChange={selectHandler}
@@ -50,7 +31,7 @@ const AddressAndLocation = () => {
             </div>
             <div className="col-lg-3">
                <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">City*</label>
+                  <label htmlFor="">Cidade*</label>
                   <NiceSelect className="nice-select"
                      options={[
                         { value: "1", text: "Boston" },
@@ -68,13 +49,13 @@ const AddressAndLocation = () => {
             </div>
             <div className="col-lg-3">
                <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">Zip Code*</label>
+                  <label htmlFor="">CEP*</label>
                   <input type="number" placeholder="1708" />
                </div>
             </div>
             <div className="col-lg-3">
                <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">State*</label>
+                  <label htmlFor="">Estado*</label>
                   <NiceSelect className="nice-select"
                      options={[
                         { value: "1", text: "Maine" },
@@ -93,7 +74,7 @@ const AddressAndLocation = () => {
          </div>
          <div className="col-12">
             <div className="dash-input-wrapper mb-25">
-               <label htmlFor="">Map Location*</label>
+               <label htmlFor="">Localização*</label>
                <div className="position-relative">
                   <input type="text" placeholder="XC23+6XC, Moiran, N105" />
                   <button className="location-pin tran3s"><Image src={locationImage} alt="" className="lazy-img m-auto" /></button>
