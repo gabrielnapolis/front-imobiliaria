@@ -1,5 +1,3 @@
-import Link from "next/link"
-
 const CommonBanner = ({ style_3 }: any) => {
    return (
       <div className="row">
@@ -13,21 +11,11 @@ const CommonBanner = ({ style_3 }: any) => {
          </div>
          <div className="col-lg-6 text-lg-end">
             <div className="d-inline-block md-mt-40">
-               <div className="price color-dark fw-500">Preço: R$ 1,67,000</div>
-               <div className="est-price fs-20 mt-25 mb-35 md-mb-30">Est. Payment <span
-                  className="fw-500 color-dark">R$ 8.343/mo*</span></div>
+               <div className="price color-dark fw-500">Preço: R$ 1.670.000</div>
+               
                <ul className="style-none d-flex align-items-center action-btns">
                   <li className="me-auto fw-500 color-dark"><i className="fa-sharp fa-regular fa-share-nodes me-2"></i>
                      Compartilhar</li>
-                  <li><Link href="#"
-                     className={`d-flex align-items-center justify-content-center tran3s ${style_3 ? "" : "rounded-circle"}`}><i
-                        className="fa-light fa-heart"></i></Link></li>
-                  <li><Link href="#"
-                     className={`d-flex align-items-center justify-content-center tran3s ${style_3 ? "" : "rounded-circle"}`}><i
-                        className="fa-light fa-bookmark"></i></Link></li>
-                  <li><Link href="#"
-                     className={`d-flex align-items-center justify-content-center tran3s ${style_3 ? "" : "rounded-circle"}`}><i
-                        className="fa-light fa-circle-plus"></i></Link></li>
                </ul>
             </div>
          </div>

@@ -1,10 +1,74 @@
-import property_feature_list from "@/data/inner-data/PropertyFeatureListData"
+import  {PropertyDetails } from "@/data/inner-data/PropertyDetails"
+import {  useEffect, useState } from "react";
 
-const CommonPropertyFeatureList = () => {
+const CommonPropertyFeatureList = ({ params }: { params: { property: any } }) => {
+   const [property, setProperty] = useState<any>(params.property);
+   const [property_list, setPropertyList] = useState<PropertyDetails[]>([]);
+ 
+   useEffect(() => {
+     setProperty(property);
+     addItems(property)
+   }, []);
+
+   const addItems = (property: any) => {
+      const categories: { [key: string]: { id: number; title: string; features: { title: string; count: string }[] } } = {
+        details: {
+          id: 1,
+          title: "Detalhes da Propriedade",
+          features: []
+        },
+        external: {
+          id: 2,
+          title: "Recursos Externos",
+          features: []
+        }
+      };
+  
+      const featureMappings: { [key: string]: { category: string; featureTitle: string; count: (value: any) => string } } = {
+         bed: { category: 'details', featureTitle: "Quartos", count: (value) => value.toString() },
+         bath: { category: 'details', featureTitle: "Banheiros", count: (value) => value.toString() },
+         kitchen: { category: 'details', featureTitle: "Cozinha", count: (value) => value.toString() },
+         parking: { category: 'details', featureTitle: "Estacionamento", count: (value) => value ? "Sim" : "Não" },
+         garden: { category: 'details', featureTitle: "Jardim", count: (value) => value ? "Sim" : "Não" },
+         hvac: { category: 'details', featureTitle: "HVAC", count: (value) => value ? "Sim" : "Não" },
+         garages: { category: 'external', featureTitle: "Garagem", count: (value) => value.toString() },
+         playground: { category: 'external', featureTitle: "Playground", count: (value) => value ? "Sim" : "Não" },
+         elevator: { category: 'details', featureTitle: "Elevador", count: (value) => value ? "Sim" : "Não" },
+         swimmimgpool: { category: 'external', featureTitle: "Piscina", count: (value) => value ? "Sim" : "Não" },
+         ceilingHeight: { category: 'details', featureTitle: "Pé Direito", count: (value) => value.toString() },
+         city: { category: 'details', featureTitle: "Cidade", count: (value) => value },
+         state: { category: 'details', featureTitle: "Estado", count: (value) => value },
+         neighborhood: { category: 'details', featureTitle: "Bairro", count: (value) => value },
+         streetAdress: { category: 'details', featureTitle: "Endereço", count: (value) => value },
+         security: { category: 'external', featureTitle: "Segurança", count: (value) => value },
+         pcdAccess: { category: 'external', featureTitle: "Acessibilidade para PCD", count: (value) => value.toString() },
+         furnished: { category: 'details', featureTitle: "Mobiliado", count: (value) => value ? "Sim" : "Não" },
+         wifi: { category: 'details', featureTitle: "WiFi", count: (value) => value ? "Sim" : "Não" },
+         petAllowed: { category: 'external', featureTitle: "Aceita Animais", count: (value) => value ? "Sim" : "Não" }
+       };
+  
+      for (const key in property) {
+        if (featureMappings[key]) {
+          const mapping = featureMappings[key];
+          categories[mapping.category].features.push({
+            title: `${mapping.featureTitle}:`,
+            count: mapping.count(property[key])
+          });
+        }
+      }
+  
+      const items: PropertyDetails[] = Object.values(categories).filter(category => category.features.length > 0).map(category => ({
+        id: category.id,
+        title: category.title,
+        feature_list: category.features
+      }));
+  
+      setPropertyList(items);
+    };
 
    return (
       <div className="accordion" id="accordionTwo">
-         {property_feature_list.map((item) => (
+         {property_list.map((item: any) => (
             <div key={item.id} className="accordion-item">
                <h2 className="accordion-header">
                   <button className={`accordion-button ${item.id === 1 ? "" : "collapsed"}`} type="button"
@@ -18,7 +82,7 @@ const CommonPropertyFeatureList = () => {
                   <div className="accordion-body">
                      <div className="feature-list-two">
                         <ul className="style-none d-flex flex-wrap justify-content-between">
-                           {item.feature_list.map((list, i) => (
+                           {item.feature_list.map((list: { title: string | number | boolean ; count: string | number | boolean |  null | undefined; }, i: number | null | undefined) => (
                               <li key={i}><span>{list.title} </span> <span className="fw-500 color-dark">{list.count}</span></li>
                            ))}
                         </ul>

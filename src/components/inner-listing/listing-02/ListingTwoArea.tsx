@@ -87,7 +87,7 @@ const ListingTwoArea =  ({ style }: any) => {
                                  </div> */}
                               </div>
                               <div className="property-info">
-                                 <Link href="/detalhes" className="title tran3s mb-15">{item.name}</Link>
+                                 <Link href={`/detalhes${item.id}`} className="title tran3s mb-15">{item.name}</Link>
                                  <div className="address">{item.address}</div>
                                  <div className="feature mt-30 mb-30 pt-30 pb-5">
                                     <ul className="style-none d-flex flex-wrap align-items-center justify-content-between">
@@ -100,7 +100,7 @@ const ListingTwoArea =  ({ style }: any) => {
                                     <strong className="price fw-500 color-dark me-auto">R$
                                     {item.price.toLocaleString({ minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                     </strong>
-                                    <Link href="/detalhes" className="btn-four rounded-circle">
+                                    <Link href={`/detalhes/${item.id}`} className="btn-four rounded-circle">
                                        <i className="bi bi-arrow-up-right"></i>
                                     </Link>
                                  </div>
