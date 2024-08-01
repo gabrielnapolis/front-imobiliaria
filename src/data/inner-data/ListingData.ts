@@ -23,6 +23,7 @@ export interface PropertieType {
   state?: string;
   neighborhood?: string;
   streetAdress?: string;
+  constructionYear?: number;
 
   url_img?: string;
   page: string;

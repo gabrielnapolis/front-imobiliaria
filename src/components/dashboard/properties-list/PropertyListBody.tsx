@@ -14,21 +14,18 @@ const PropertyListBody = () => {
    return (
       <div className="dashboard-body">
          <div className="position-relative">
-            <DashboardHeaderTwo title="My Properties" />
-            <h2 className="main-title d-block d-lg-none">Minhas Propriedades</h2>
+            <DashboardHeaderTwo title="Imóveis Cadastrados" />
             <div className="d-sm-flex align-items-center justify-content-between mb-25">
-               <div className="fs-16">Showing <span className="color-dark fw-500">1–5</span> of <span
-                  className="color-dark fw-500">40</span> results</div>
+               <div className="fs-16">Mostrando <span className="color-dark fw-500">1–5</span> of <span
+                  className="color-dark fw-500">40</span> resultados</div>
                <div className="d-flex ms-auto xs-mt-30">
                   <div className="short-filter d-flex align-items-center ms-sm-auto">
-                     <div className="fs-16 me-2">Short by:</div>
+                     <div className="fs-16 me-2">Ordenar por:</div>
                      <NiceSelect className="nice-select"
                         options={[
-                           { value: "1", text: "Newest" },
-                           { value: "2", text: "Best Seller" },
-                           { value: "3", text: "Best Match" },
-                           { value: "4", text: "Price Low" },
-                           { value: "5", text: "Price High" },
+                           { value: "1", text: "Mais Novo" },
+                           { value: "4", text: "Preço Menos" },
+                           { value: "5", text: "Preço Maior" },
                         ]}
                         defaultCurrent={0}
                         onChange={selectHandler}
@@ -43,11 +40,12 @@ const PropertyListBody = () => {
                   <table className="table property-list-table">
                      <thead>
                         <tr>
-                           <th scope="col">Title</th>
-                           <th scope="col">Date</th>
-                           <th scope="col">View</th>
+                           <th scope="col">Título</th>
+                           <th scope="col">Categoria</th>
                            <th scope="col">Status</th>
-                           <th scope="col">Action</th>
+                           <th scope="col">Estado</th>
+                           <th scope="col">Cidade</th>
+                           <th scope="col">Ações</th>
                         </tr>
                      </thead>
                      <PropertyTableBody />
@@ -62,7 +60,7 @@ const PropertyListBody = () => {
                <li><Link href="#">4</Link></li>
                <li>....</li>
                <li className="ms-2"><Link href="#" className="d-flex align-items-center">
-                  Last <Image src={icon_1} alt="" className="ms-2" /></Link></li>
+                  Última <Image src={icon_1} alt="" className="ms-2" /></Link></li>
             </ul>
          </div>
       </div>

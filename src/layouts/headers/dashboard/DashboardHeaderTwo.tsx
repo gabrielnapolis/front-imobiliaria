@@ -23,7 +23,7 @@ const DashboardHeaderTwo = ({title}:any) => {
                   <span></span>
                </button>
                <form onSubmit={(e) => e.preventDefault()} className="search-form ms-auto">
-                  <input type="text" placeholder="Search here.." />
+                  <input type="text" placeholder="Busque aqui" />
                   <button><Image src={dashboardIcon_1} alt="" className="lazy-img m-auto" /></button>
                </form>
                <div className="profile-notification position-relative dropdown-center ms-3 ms-md-5 me-4">

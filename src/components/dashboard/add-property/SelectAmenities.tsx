@@ -12,7 +12,6 @@ const amenities: string[] = [
    "Churrasqueira",                 // Barbeque
    "Lavanderia",                    // Laundry
    "Secadora",                      // Dryer
-   "Gramado",                       // Lawn
    "Elevador"                       // Elevator
 ];
 
