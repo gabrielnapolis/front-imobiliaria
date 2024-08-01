@@ -9,18 +9,14 @@ const AddPropertyBody = () => {
 
   const amenities: string[] = [
     "Ar-condicionado", // A/C & Heating
-    "Garagens", // Garages
     "Piscina", // Swimming Pool
     "Estacionamento", // Parking
     "Jardim", // Garden
     "Acesso para Deficientes", // Disabled Access
     "Aceita Animais", // Pet Friendly
-    "Pé Direito", // Ceiling Height
-    "Geladeira", // Refrigerator
     "Wi-Fi", // Wifi
     "Churrasqueira", // Barbeque
     "Lavanderia", // Laundry
-    "Secadora", // Dryer
     "Elevador", // Elevator
   ];
 
@@ -34,8 +30,8 @@ const AddPropertyBody = () => {
         <div className="bg-white card-box border-20">
           <h4 className="dash-title-three">Visão Geral</h4>
           <div className="dash-input-wrapper mb-30">
-            <label htmlFor="">Nome da Propriedade*</label>
-            <input type="text" placeholder="Nome da Propriedade" />
+            <label htmlFor="">Nome do Imóvel*</label>
+            <input type="text" placeholder="Nome da Imóvel" />
           </div>
           <div className="dash-input-wrapper mb-30">
             <label htmlFor="">Descrição*</label>
@@ -44,12 +40,19 @@ const AddPropertyBody = () => {
               placeholder="Fale sobre o local..."
             ></textarea>
           </div>
+          <div className="col-md-6">
+            <div className="dash-input-wrapper mb-30">
+              <label htmlFor="">Preço*</label>
+              <input type="text" placeholder="Preço" />
+            </div>
+          </div>
           <div className="row align-items-end">
             <div className="col-md-6">
               <div className="dash-input-wrapper mb-30">
                 <label htmlFor="">Categoria*</label>
                 <NiceSelect
                   className="nice-select"
+                  placeholder="Apartamento, Condominio, Casa"
                   options={[
                     { value: "Apartamento", text: "Apartamento" },
                     { value: "Condominio", text: "Condomínio" },
@@ -59,19 +62,17 @@ const AddPropertyBody = () => {
                   defaultCurrent={0}
                   onChange={selectHandler}
                   name=""
-                  placeholder=""
                 />
               </div>
             </div>
             <div className="col-md-6">
               <div className="dash-input-wrapper mb-30">
-                <label htmlFor="">Listado em*</label>
+                <label htmlFor="">Venda/Aluguel*</label>
                 <NiceSelect
                   className="nice-select"
                   options={[
-                    { value: "1", text: "Todos" },
-                    { value: "2", text: "Venda" },
-                    { value: "3", text: "Aluguel" },
+                    { value: "1", text: "Venda" },
+                    { value: "2", text: "Aluguel" },
                   ]}
                   defaultCurrent={0}
                   onChange={selectHandler}
@@ -82,8 +83,18 @@ const AddPropertyBody = () => {
             </div>
             <div className="col-md-6">
               <div className="dash-input-wrapper mb-30">
-                <label htmlFor="">Preço*</label>
-                <input type="text" placeholder="Preço" />
+                <label htmlFor="">Status*</label>
+                <NiceSelect
+                  className="nice-select"
+                  options={[
+                    { value: "1", text: "Ativo" },
+                    { value: "2", text: "Inativo" },
+                  ]}
+                  defaultCurrent={0}
+                  onChange={selectHandler}
+                  name=""
+                  placeholder=""
+                />
               </div>
             </div>
           </div>
@@ -105,10 +116,12 @@ const AddPropertyBody = () => {
                 <NumberNiceSelect
                   className="nice-select"
                   options={[
-                    { value: 1, text: 0 },
-                    { value: 2, text: 1 },
-                    { value: 3, text: 2 },
-                    { value: 4, text: 3 },
+                    { value: 0, text: 0 },
+                    { value: 1, text: 1 },
+                    { value: 2, text: 2 },
+                    { value: 3, text: 3 },
+                    { value: 4, text: 4 },
+                    { value: 5, text: 5 },
                   ]}
                   defaultCurrent={0}
                   onChange={selectHandler}
@@ -123,10 +136,11 @@ const AddPropertyBody = () => {
                 <NumberNiceSelect
                   className="nice-select"
                   options={[
-                    { value: 1, text: 0 },
-                    { value: 2, text: 1 },
-                    { value: 3, text: 2 },
-                    { value: 4, text: 3 },
+                    { value: 0, text: 0 },
+                    { value: 1, text: 1 },
+                    { value: 2, text: 2 },
+                    { value: 3, text: 3 },
+                    { value: 4, text: 4 },
                   ]}
                   defaultCurrent={0}
                   onChange={selectHandler}
@@ -141,10 +155,9 @@ const AddPropertyBody = () => {
                 <NumberNiceSelect
                   className="nice-select"
                   options={[
-                    { value: 1, text: 0 },
-                    { value: 2, text: 1 },
-                    { value: 3, text: 2 },
-                    { value: 4, text: 3 },
+                    { value: 1, text: 1 },
+                    { value: 2, text: 2 },
+                    { value: 3, text: 3 },
                   ]}
                   defaultCurrent={0}
                   onChange={selectHandler}
@@ -161,8 +174,6 @@ const AddPropertyBody = () => {
                   options={[
                     { value: 1, text: 1 },
                     { value: 2, text: 2 },
-                    { value: 3, text: 3 },
-                    { value: 4, text: 4 },
                   ]}
                   defaultCurrent={0}
                   onChange={selectHandler}
@@ -203,6 +214,12 @@ const AddPropertyBody = () => {
                     { value: 18, text: 18 },
                     { value: 19, text: 19 },
                     { value: 20, text: 20 },
+                    { value: 21, text: 21 },
+                    { value: 22, text: 22 },
+                    { value: 23, text: 23 },
+                    { value: 24, text: 24 },
+                    { value: 25, text: 25 },
+                    { value: 26, text: 26 },
                   ]}
                   defaultCurrent={0}
                   onChange={selectHandler}

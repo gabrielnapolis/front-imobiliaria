@@ -44,11 +44,11 @@ const DashboardHeaderOne = ({ isActive, setIsActive }: any) => {
                
                   <li className="plr"><Link href="/dashboard/properties-list" className={`d-flex w-100 align-items-center ${pathname === '/dashboard/properties-list' ? 'active' : ''}`}>
                      <Image src={pathname === '/dashboard/properties-list' ? dashboardIconActive_6 : dashboardIcon_6} alt="" />
-                     <span>Propriedades</span>
+                     <span>Imóveis</span>
                   </Link></li>
                   <li className="plr"><Link href="/dashboard/add-property" className={`d-flex w-100 align-items-center ${pathname === '/dashboard/add-property' ? 'active' : ''}`}>
                      <Image src={pathname === '/dashboard/add-property' ? dashboardIconActive_7 : dashboardIcon_7} alt="" />
-                     <span>Adicionar Nova Propriedade</span>
+                     <span>Adicionar Novo Imóvel</span>
                   </Link></li>
             
                  

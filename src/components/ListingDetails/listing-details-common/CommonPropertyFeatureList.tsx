@@ -14,7 +14,7 @@ const CommonPropertyFeatureList = ({ params }: { params: { property: any } }) =>
       const categories: { [key: string]: { id: number; title: string; features: { title: string; count: string }[] } } = {
         details: {
           id: 1,
-          title: "Detalhes da Propriedade",
+          title: "Detalhes do Imóvel",
           features: []
         },
         external: {
