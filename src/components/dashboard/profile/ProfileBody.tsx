@@ -2,7 +2,6 @@
 import DashboardHeaderTwo from "@/layouts/headers/dashboard/DashboardHeaderTwo"
 import Image from "next/image"
 import UserAvatarSetting from "./UserAvatarSetting"
-import AddressAndLocation from "./AddressAndLocation"
 import Link from "next/link"
 import SocialMediaLink from "./SocialMediaLink"
 
@@ -27,7 +26,7 @@ const ProfileBody = () => {
                <UserAvatarSetting />
             </div>
             <SocialMediaLink />
-            <AddressAndLocation />
+
 
             <div className="button-group d-inline-flex align-items-center mt-30">
                <Link href="#" className="dash-btn-two tran3s me-3">Save</Link>

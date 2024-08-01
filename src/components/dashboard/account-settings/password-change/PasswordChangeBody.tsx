@@ -12,26 +12,26 @@ const PasswordChangeBody = () => {
             <div className="row">
               <div className="col-12">
                 <div className="dash-input-wrapper mb-20">
-                  <label htmlFor="">Old Password*</label>
-                  <input type="password" placeholder="Type current password" />
+                  <label htmlFor="">Senha Antiga*</label>
+                  <input type="password" placeholder="Senha antiga" />
                 </div>
               </div>
               <div className="col-12">
                 <div className="dash-input-wrapper mb-20">
-                  <label htmlFor="">New Password*</label>
-                  <input type="password" placeholder="Confirm your new password" />
+                  <label htmlFor="">Nova Senha*</label>
+                  <input type="password" placeholder="Confirmar sua nova senha" />
                 </div>
               </div>
               <div className="col-12">
                 <div className="dash-input-wrapper mb-20">
-                  <label htmlFor="">Confirm Password*</label>
-                  <input type="password" placeholder="Confirm your new password" />
+                  <label htmlFor="">Confirmar Nova Senha*</label>
+                  <input type="password" placeholder="Confirmar sua nova senha" />
                 </div>
               </div>
             </div>
 
             <div className="button-group d-inline-flex align-items-center">
-              <Link href="#" className="dash-btn-two tran3s">Save &amp; Updated</Link>
+              <Link href="#" className="dash-btn-two tran3s">Salvar &amp; Atualizar</Link>
             </div>
           </form>
         </div>
