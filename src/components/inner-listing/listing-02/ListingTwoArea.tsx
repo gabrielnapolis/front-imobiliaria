@@ -7,7 +7,7 @@ import UseShortedProperty from "@/hooks/useShortedProperty"
 import Fancybox from "@/components/common/Fancybox"
 import DropdownOne from "@/components/search-dropdown/inner-dropdown/DropdownOne"
 import icon from "@/assets/images/icon/icon_46.svg"
-import { PropertieType } from "@/data/inner-data/ListingData"
+import { PropertyType } from "@/data/inner-data/PropertyType"
 
 const ListingTwoArea =  ({ style }: any) => {
 

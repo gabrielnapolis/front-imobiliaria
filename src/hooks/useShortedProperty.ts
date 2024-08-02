@@ -2,7 +2,7 @@ import UseProperty from "@/hooks/UseProperty";
 import { ChangeEvent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectProperties } from "@/redux/features/propertySlice";
-import listing_data, { PropertieType } from "@/data/inner-data/ListingData";
+import { PropertyType } from "@/data/inner-data/PropertyType";
 import { getAllProperties } from "@/app/imoveis/actions";
 
 interface DataType {
@@ -13,7 +13,7 @@ interface DataType {
 const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
 
 
-    let all_property:PropertieType[] = [];
+    let all_property:PropertyType[] = [];
 
 
    console.log(all_property)

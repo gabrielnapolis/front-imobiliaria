@@ -1,4 +1,4 @@
-export interface PropertieType {
+export interface PropertyType {
   id: number;
   name: string;
   description?: string;
@@ -27,6 +27,7 @@ export interface PropertieType {
 
   url_img?: string;
   page: string;
+  
   // carousel_thumb: {
   //   id?: string;
   //   img: StaticImageData;

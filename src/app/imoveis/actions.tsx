@@ -1,4 +1,4 @@
-import { PropertieType } from "@/data/inner-data/ListingData";
+import { PropertyType } from "@/data/inner-data/PropertyType";
 import axios from "axios";
 
 const axiosInstance = axios.create({

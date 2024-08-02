@@ -8,10 +8,10 @@ import icon_3 from "@/assets/images/dashboard/icon/icon_20.svg";
 import icon_4 from "@/assets/images/dashboard/icon/icon_21.svg";
 import { useEffect, useState } from "react";
 import { getAllProperties, getPropertiesByID } from "@/app/imoveis/actions";
-import { PropertieType } from "@/data/inner-data/ListingData";
+import { PropertyType } from "@/data/inner-data/PropertyType";
 
 export default function PropertyTableBody ()  {
-   const [listData, setListData] = useState<PropertieType[]>([]);
+   const [listData, setListData] = useState<PropertyType[]>([]);
 
    const formatPrice = (price: number): string => {
      return price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
