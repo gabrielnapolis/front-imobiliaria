@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectProperties } from "@/redux/features/propertySlice";
 import { PropertyType } from "@/data/inner-data/PropertyType";
-import { getAllProperties } from "@/app/imoveis/actions";
+import { getAllProperties, getProperties } from "@/app/imoveis/actions";
 
 interface DataType {
    itemsPerPage: number;
@@ -61,7 +61,7 @@ const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
    // handleAmenityChange
    const handleAmenityChange = (event: ChangeEvent<HTMLInputElement>) => {
       const amenity = event.target.value;
-
+      
       setSelectedAmenities((prevSelectedAmenities) => {
          if (prevSelectedAmenities.includes(amenity)) {
             return prevSelectedAmenities.filter((a) => a !== amenity);
@@ -73,72 +73,29 @@ const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
 
    useEffect(() => {
       // This block will be executed after selectedAmenities has been updated.
-      getAllProperties().then(data=>{setProperties(data)
+    
+      let req ={
+         location,
+         maxPrice,
+         selectedBedrooms,
+         selectedBathrooms,
+        //   ...selectedAmenities,
+
+         
+      }
+      getProperties(req).then(data=>{setProperties(data)
+         console.log(" search resposne"+data)
          all_property=data;
       })
       setItemOffset(0);
-   }, [selectedAmenities]);
+   }, []);
 
-   const getSortedProperties = () => {
-      let filtered = filteredProperties;
+   
 
-      // Status filtering
-      if (status !== null) {
-         filtered = filtered.filter((item) => {
-            return item.status.toLowerCase().includes(status.toLowerCase());
-         });
-      }
 
-      // Location filtering
-      if (location !== null) {
-         filtered = filtered.filter((item) => {
-            return item.location.toLowerCase().includes(location.toLowerCase());
-         });
-      }
-
-      // Bedrooms filtering
-      if (selectedBedrooms !== null) {
-         filtered = filtered.filter((item) => {
-            return item.property_info.bed.toLowerCase().includes(selectedBedrooms.toLowerCase());
-         });
-      }
-
-      // Bathrooms filtering
-      if (selectedBathrooms !== null) {
-         filtered = filtered.filter((item) => {
-            return item.property_info.bath.toLowerCase().includes(selectedBathrooms.toLowerCase());
-         });
-      }
-
-      // Amenities filtering
-      if (selectedAmenities.length > 0) {
-         filtered = filtered.filter((item) => {
-            const propertyAmenities = item.amenities || [];
-            return selectedAmenities.every((amenity) => propertyAmenities.includes(amenity));
-         });
-      }
-
-      // Type filtering
-      switch (sortOption) {
-         case "newest":
-            return filtered.filter((item) => item.type === "newest");
-         case "best_seller":
-            return filtered.filter((item) => item.type === "Best Seller");
-         case "best_match":
-            return filtered.filter((item) => item.type === "Best Match");
-         case "price_low":
-            return filtered.sort((a, b) => a.price - b.price);
-         case "price_high":
-            return filtered.sort((a, b) => b.price - a.price);
-         default:
-            return filtered;
-      }
-   };
-
-   const sortedProperties = getSortedProperties();
    const endOffset = itemOffset + itemsPerPage;
-   const currentItems = sortedProperties.slice(itemOffset, endOffset);
-   const pageCount = Math.ceil(sortedProperties.length / itemsPerPage);
+   const currentItems = properties.slice(itemOffset, endOffset);
+   const pageCount = Math.ceil(properties.length / itemsPerPage);
 
    const handlePageClick = (event: any) => {
       const newOffset = event.selected * itemsPerPage;
@@ -150,11 +107,9 @@ const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
    const filteredAllProduct = allProperties.filter(item => item.page === "listing_1");
 
    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-      getAllProperties().then(()=>{
-         const searchingProducts = filteredAllProduct.filter((p) =>
-            p.title.toLowerCase().includes(e.target.value.toLowerCase())
-         );
-         setProperties(searchingProducts);
+      getAllProperties().then((data)=>{
+      
+         setProperties(data);
       }
        
       )
@@ -165,10 +120,7 @@ const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
    const maxPrice =50000000
    const [priceValue, setPriceValue] = useState([0, maxPrice]);
 
-   useEffect(() => {
-      let filterPrice = all_property.filter((j) => j.price >= priceValue[0] && j.price <= priceValue[1]);
-      setProperties(filterPrice)
-   }, [priceValue]);
+  
 
    const handlePriceChange = (val: number[]) => {
       setPriceValue(val)
@@ -203,7 +155,7 @@ const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
    return {
       handlePriceDropChange,
       itemOffset,
-      sortedProperties,
+      sortedProperties:properties,
       currentItems,
       handlePageClick,
       handleSearchChange,

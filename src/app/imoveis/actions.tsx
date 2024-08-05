@@ -16,8 +16,18 @@ export async function getPropertiesByID(id: number) {
   return res;
 }
 
+const postData = async (url: string,data:any, options = {}) => {
+  try {
+    const response = await axios.post(url,data, options,);
+    return response.data;
+  } catch (error) {
+    console.error("Error retrieving data:", error);
+    throw new Error("Could not get data");
+  }
+};
 const fetchData = async (url: string, options = {}) => {
   try {
+ 
     const response = await axiosInstance(url, options);
     return response.data;
   } catch (error) {
@@ -28,6 +38,12 @@ const fetchData = async (url: string, options = {}) => {
 export async function getAllProperties() {
   const url = "/properties";
   const res = await fetchData(url);
+  console.log(res);
+  return res;
+}
+export async function getProperties(req:any) {
+  const url = "http://localhost:3001/properties/find";
+  const res = await postData(url,req);
   console.log(res);
   return res;
 }

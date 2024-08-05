@@ -32,7 +32,7 @@ const ListingTwoArea =  ({ style }: any) => {
       handleStatusChange,
       handleTypeChange,
    } =  UseShortedProperty({ itemsPerPage, page });
-
+   console.log("currentItems"+currentItems)
    const handleResetFilter = () => {
       resetFilters();
    };
