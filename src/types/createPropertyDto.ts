@@ -25,9 +25,17 @@ export interface CreatePropertyDto {
 
   propertyType: string;
 
-  hvac: boolean;
-
   garages: number;
+  
+  ceilingHeight: number;
+
+  constructionYear: number;
+
+  security: string;
+  
+  floors: number;
+  
+  hvac: boolean;
 
   garden: boolean;
 
@@ -39,12 +47,6 @@ export interface CreatePropertyDto {
 
   parking: boolean;
 
-  ceilingHeight: number;
-
-  constructionYear: number;
-
-  security: string;
-
   pcdAccess: boolean;
 
   furnished: boolean;
@@ -52,4 +54,8 @@ export interface CreatePropertyDto {
   wifi: boolean;
 
   petAllowed: boolean;
+
+  gym: boolean;
+
+  grill: boolean;
 }

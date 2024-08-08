@@ -20,18 +20,9 @@ const get = async (url: string, options = {}) => {
   }
 };
 
-const post = async (url: string, options = {}) => {
-  const axiosInstance = axios.create({
-    method: "post",
-    baseURL: "http://localhost:3001/",
-    timeout: 5000, // Timeout if necessary
-    headers: {
-      ContentType: "program/json",
-      // Add all custom headers here
-    },
-  });
+const post = async (url: string, data: any, options = {}) => {
   try {
-    const response = await axiosInstance(url, options);
+    const response = await axios.post(url, data, options);
     return response.data;
   } catch (error) {
     console.error("Error retrieving data:", error);
@@ -47,9 +38,8 @@ export async function login(email: string, password: string) {
 }
 
 export async function addProperty(property: CreatePropertyDto) {
-  const url = "/properties";
+  const url = "http://localhost:3001/properties";
   const res = await post(url, property);
-  console.log(res);
   return res;
 }
 

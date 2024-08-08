@@ -1,11 +1,9 @@
 "use client"
 import Image from "next/image"
 import Link from "next/link"
-import Notification from "./Notification";
 import Profile from "./Profile";
 import { useState } from "react";
 import DashboardHeaderOne from "./DashboardHeaderOne";
-
 import dashboardIcon_1 from "@/assets/images/dashboard/icon/icon_43.svg";
 import dashboardIcon_2 from "@/assets/images/dashboard/icon/icon_11.svg";
 import dashboardAvatar from "@/assets/images/dashboard/avatar_01.jpg";
@@ -27,11 +25,7 @@ const DashboardHeaderTwo = ({title}:any) => {
                   <button><Image src={dashboardIcon_1} alt="" className="lazy-img m-auto" /></button>
                </form>
                <div className="profile-notification position-relative dropdown-center ms-3 ms-md-5 me-4">
-                  <button className="noti-btn dropdown-toggle" type="button" id="notification-dropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-                     <Image src={dashboardIcon_2} alt="" className="lazy-img" />
-                     <div className="badge-pill"></div>
-                  </button>
-                  <Notification />
+
                </div>
                <div className="d-none d-md-block me-3">
                   <Link href="/dashboard/add-property" className="btn-two"><span>Adicionar Imóvel</span> <i className="fa-thin fa-arrow-up-right"></i></Link>

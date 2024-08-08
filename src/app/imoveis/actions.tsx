@@ -38,13 +38,13 @@ const fetchData = async (url: string, options = {}) => {
 export async function getAllProperties() {
   const url = "/properties";
   const res = await fetchData(url);
-  console.log(res);
+  //console.log(res);
   return res;
 }
 export async function getProperties(req:any) {
   const url = "http://localhost:3001/properties/find";
   const res = await postData(url,req);
-  console.log(res);
+  //console.log(res);
   return res;
 }
 
