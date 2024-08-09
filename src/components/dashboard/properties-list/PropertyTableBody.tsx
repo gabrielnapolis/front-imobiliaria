@@ -36,7 +36,7 @@ export default function PropertyTableBody ()  {
                 >
                   {item.name}
                 </Link>
-                <div className="address">{item.streetAdress}</div>
+                <div className="address">{item.state}, {item.city}</div>
                 <strong className="price color-dark">
                   {formatPrice(item.price)}
                 </strong>
@@ -48,12 +48,6 @@ export default function PropertyTableBody ()  {
             <div className={`property-status ${item.status}`}>
               {item.status}
             </div>
-          </td>
-          <td>
-            <div className="price color-dark">{item.state}</div>
-          </td>
-          <td>
-            <div className="price color-dark">{item.city}</div>
           </td>
           <td>
             <div className="action-dots float-end">
