@@ -36,7 +36,7 @@ export default function PropertyTableBody ()  {
                 >
                   {item.name}
                 </Link>
-                <div className="address">{item.state}, {item.city}</div>
+                <div className="address">{item.state},{item.city}</div>
                 <strong className="price color-dark">
                   {formatPrice(item.price)}
                 </strong>

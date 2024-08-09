@@ -32,3 +32,13 @@ const post = async (url: string, data: any, options = {}) => {
     return { error: error }
   }
 };
+
+export async function getAddress(cep: string){
+	if(cep.length >= 8){
+		const url = `https://brasilapi.com.br/api/cep/v1/${cep}`;
+		const res = await fetch(url);
+		const data = await res.json();
+	
+		return data;
+	}
+}
