@@ -11,21 +11,21 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 export default function AddPropertyBody() {
   const schema = yup.object({
-    name: yup.string().required(),
-    description: yup.string().required(),
-    price: yup.number().required(),
-    propertyType: yup.string().required(),
+    name: yup.string().required("Informe o nome do imóvel."),
+    description: yup.string().required("Informe a descrição do imóvel."),
+    price: yup.number().required().typeError('Informe o preço.'),
+    propertyType: yup.string().required("Informe e descrição do imóvel."),
     status: yup.string().required(),
-    mts: yup.number().required(),
-    city: yup.string().required(),
-    state: yup.string().required(),
-    neighborhood: yup.string().required(),
-    streetAdress: yup.string().required(),
+    mts: yup.number().required().typeError('Informe tamanho do imóvel em metros.'),
+    city: yup.string().required("Informe a cidade"),
+    state: yup.string().required("Informe o estado"),
+    neighborhood: yup.string().required("Informe o bairro"),
+    streetAdress: yup.string().required("Informe o endereço"),
     bed: yup.number().required(),
     bath: yup.number().required(),
     kitchen: yup.number().required(),
     garages: yup.number().required(),
-    ceilingHeight: yup.number().required(),
+    ceilingHeight: yup.number().required().typeError('Informe pé direito em metros.'),
     constructionYear: yup.number().required(),
     security: yup.string().required().default("-"),
     floors: yup.number().required(),
@@ -386,6 +386,7 @@ export default function AddPropertyBody() {
                   placeholder="Bairro"
                   {...register("neighborhood")}
                 />
+                <p className="form_error">{errors.neighborhood?.message}</p>
               </div>
               <div className="col-lg-3">
                 <div className="dash-input-wrapper mb-25">
