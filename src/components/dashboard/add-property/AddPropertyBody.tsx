@@ -1,41 +1,73 @@
 "use client";
 
-import { SubmitHandler, useForm } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
+import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
 import DashboardHeaderTwo from "@/layouts/headers/dashboard/DashboardHeaderTwo";
 import Link from "next/link";
 import { CreatePropertyDto } from "@/types/createPropertyDto";
 import { addProperty } from "@/app/dashboard/services/api";
-import { useEffect, useState } from "react";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 export default function AddPropertyBody() {
-  const {
-    formState: { errors },
-    register,
-    handleSubmit,
-  } = useForm<CreatePropertyDto>({
-    defaultValues: {
-      hvac: false,
-      garden: false,
-      playground: false,
-      elevator: false,
-      swimmimgpool: false,
-      parking: false,
-      pcdAccess: false,
-      furnished: false,
-      wifi: false,
-      petAllowed: false,
-      gym: false,
-      grill: false,
-    },
+  const schema = yup.object({
+    name: yup.string().required(),
+    description: yup.string().required(),
+    price: yup.number().required(),
+    propertyType: yup.string().required(),
+    status: yup.string().required(),
+    mts: yup.number().required(),
+    city: yup.string().required(),
+    state: yup.string().required(),
+    neighborhood: yup.string().required(),
+    streetAdress: yup.string().required(),
+    bed: yup.number().required(),
+    bath: yup.number().required(),
+    kitchen: yup.number().required(),
+    garages: yup.number().required(),
+    ceilingHeight: yup.number().required(),
+    constructionYear: yup.number().required(),
+    security: yup.string().required().default("-"),
+    floors: yup.number().required(),
+    hvac: yup.boolean().required().default(false),
+    garden: yup.boolean().required().default(false),
+    playground: yup.boolean().required().default(false),
+    elevator: yup.boolean().required().default(false),
+    swimmimgpool: yup.boolean().required().default(false),
+    parking: yup.boolean().required().default(false),
+    pcdAccess: yup.boolean().required().default(false),
+    furnished: yup.boolean().required().default(false),
+    wifi: yup.boolean().required().default(false),
+    petAllowed: yup.boolean().required().default(false),
+    gym: yup.boolean().required().default(false),
+    grill: yup.boolean().required().default(false),
   });
 
-  const onSubmit: SubmitHandler<CreatePropertyDto> = async (formData) => {
-    //console.log(formData);
-    try {
-      const response = await addProperty(formData);
-      console.log(response);
-    } catch {}
+  const {
+    register,
+    handleSubmit,
+    reset,
+    clearErrors,
+    formState: { errors },
+  } = useForm<CreatePropertyDto>({ resolver: yupResolver(schema) });
+
+  const onSubmit = async (data: any) => {
+    const response = await addProperty(data);
+    console.log(data);
+    if (response && response.error) {
+      toast.error("Erro ao cadastrar", {
+        position: "top-center",
+        hideProgressBar: true,
+      });
+    } else {
+      toast.success("Imóvel cadastrado com sucesso!", {
+        position: "top-center",
+        theme: "colored",
+        hideProgressBar: true,
+      });
+      reset();
+      clearErrors();
+    }
   };
 
   return (
@@ -52,26 +84,18 @@ export default function AddPropertyBody() {
               <input
                 type="text"
                 placeholder="Nome do Imóvel"
-                {...register("name", {
-                  required: "Insira o nome do imóvel",
-                })}
+                {...register("name")}
               />
-              <p className="text-danger">
-                <ErrorMessage errors={errors} name="name" />
-              </p>
+              <p className="form_error">{errors.name?.message}</p>
             </div>
             <div className="dash-input-wrapper mb-30">
               <label>Descrição*</label>
               <textarea
                 className="size-lg"
                 placeholder="Fale sobre o local..."
-                {...register("description", {
-                  required: "Insira a descrição do imóvel",
-                })}
+                {...register("description")}
               ></textarea>
-              <p className="text-danger">
-                <ErrorMessage errors={errors} name="description" />
-              </p>
+              <p className="form_error">{errors.description?.message}</p>
             </div>
             <div className="col-md-6">
               <div className="dash-input-wrapper mb-30">
@@ -79,11 +103,9 @@ export default function AddPropertyBody() {
                 <input
                   type="float"
                   placeholder="Preço"
-                  {...register("price", { setValueAs: (v) => parseFloat(v) , required:"Insira o preço do imóvel"})}
+                  {...register("price")}
                 />
-                <p className="text-danger">
-                  <ErrorMessage errors={errors} name="price" />
-                </p>
+                <p className="form_error">{errors.price?.message}</p>
               </div>
             </div>
             <div className="row align-items-end">
@@ -96,24 +118,27 @@ export default function AddPropertyBody() {
                     <option value="Casa">Casa</option>
                     <option value="Vila">Vila</option>
                   </select>
+                  <p className="form_error">{errors.propertyType?.message}</p>
                 </div>
               </div>
               <div className="col-md-3">
                 <div className="dash-input-wrapper mb-30">
-                  <label htmlFor="">Venda/Aluguel*</label>
+                  <label>Venda/Aluguel*</label>
                   <select className="nice-select" {...register("status")}>
                     <option value="Aluguel">Aluguel</option>
                     <option value="Venda">Venda</option>
                   </select>
+                  <p className="form_error">{errors.status?.message}</p>
                 </div>
               </div>
               <div className="col-md-3">
                 <div className="dash-input-wrapper mb-30">
-                  <label htmlFor="">Status*</label>
+                  <label>Status*</label>
                   <select className="nice-select">
                     <option value="Ativo">Ativo</option>
                     <option value="Inativo">Inativo</option>
                   </select>
+                  {/* <p className="form_error">{errors.name?.message}</p> */}
                 </div>
               </div>
             </div>
@@ -125,17 +150,18 @@ export default function AddPropertyBody() {
             <div className="row align-items-end">
               <div className="col-md-6">
                 <div className="dash-input-wrapper mb-30">
-                  <label htmlFor="">Tamanho em metros*</label>
+                  <label>Tamanho em metros*</label>
                   <input
                     type="float"
                     placeholder="Ex: 3.210 m2"
-                    {...register("mts", { setValueAs: (v) => parseFloat(v) })}
+                    {...register("mts")}
                   />
+                  <p className="form_error">{errors.mts?.message}</p>
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="dash-input-wrapper mb-30">
-                  <label htmlFor="">Segurança</label>
+                  <label>Segurança</label>
                   <input
                     placeholder="Ex: Câmera, Ronda 24h"
                     {...register("security")}
@@ -144,24 +170,21 @@ export default function AddPropertyBody() {
               </div>
               <div className="col-md-6">
                 <div className="dash-input-wrapper mb-30">
-                  <label htmlFor="">Pé Direito</label>
+                  <label>Pé Direito</label>
                   <input
                     type="float"
                     placeholder="Ex: 3.210 m2"
-                    {...register("ceilingHeight", {
-                      setValueAs: (v) => parseFloat(v),
-                    })}
+                    {...register("ceilingHeight")}
                   />
+                  <p className="form_error">{errors.ceilingHeight?.message}</p>
                 </div>
               </div>
               <div className="col-md-3">
                 <div className="dash-input-wrapper mb-30">
-                  <label htmlFor="">Ano de Construção*</label>
+                  <label>Ano de Construção*</label>
                   <select
                     className="nice-select"
-                    {...register("constructionYear", {
-                      setValueAs: (v) => parseInt(v),
-                    })}
+                    {...register("constructionYear")}
                   >
                     <option value="2010">2010</option>
                     <option value="2011">2011</option>
@@ -179,15 +202,15 @@ export default function AddPropertyBody() {
                     <option value="2023">2023</option>
                     <option value="2024">2024</option>
                   </select>
+                  <p className="form_error">
+                    {errors.constructionYear?.message}
+                  </p>
                 </div>
               </div>
               <div className="col-md-3">
                 <div className="dash-input-wrapper mb-30">
-                  <label htmlFor="">Quartos*</label>
-                  <select
-                    className="nice-select"
-                    {...register("bed", { setValueAs: (v) => parseInt(v) })}
-                  >
+                  <label>Quartos*</label>
+                  <select className="nice-select" {...register("bed")}>
                     <option value="01">01</option>
                     <option value="02">02</option>
                     <option value="03">03</option>
@@ -199,11 +222,8 @@ export default function AddPropertyBody() {
               </div>
               <div className="col-md-3">
                 <div className="dash-input-wrapper mb-30">
-                  <label htmlFor="">Banheiros*</label>
-                  <select
-                    className="nice-select"
-                    {...register("bath", { setValueAs: (v) => parseInt(v) })}
-                  >
+                  <label>Banheiros*</label>
+                  <select className="nice-select" {...register("bath")}>
                     <option value="01">01</option>
                     <option value="02">02</option>
                     <option value="03">03</option>
@@ -214,11 +234,8 @@ export default function AddPropertyBody() {
               </div>
               <div className="col-md-3">
                 <div className="dash-input-wrapper mb-30">
-                  <label htmlFor="">Cozinhas*</label>
-                  <select
-                    className="nice-select"
-                    {...register("kitchen", { setValueAs: (v) => parseInt(v) })}
-                  >
+                  <label>Cozinhas*</label>
+                  <select className="nice-select" {...register("kitchen")}>
                     <option value="01">01</option>
                     <option value="02">02</option>
                     <option value="03">03</option>
@@ -227,11 +244,8 @@ export default function AddPropertyBody() {
               </div>
               <div className="col-md-3">
                 <div className="dash-input-wrapper mb-30">
-                  <label htmlFor="">Garagem</label>
-                  <select
-                    className="nice-select"
-                    {...register("garages", { setValueAs: (v) => parseInt(v) })}
-                  >
+                  <label>Garagem</label>
+                  <select className="nice-select" {...register("garages")}>
                     <option value="00">00</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
@@ -241,11 +255,8 @@ export default function AddPropertyBody() {
 
               <div className="col-md-3">
                 <div className="dash-input-wrapper mb-30">
-                  <label htmlFor="">Andar*</label>
-                  <select
-                    className="nice-select"
-                    {...register("floors", { setValueAs: (v) => parseInt(v) })}
-                  >
+                  <label>Andar*</label>
+                  <select className="nice-select" {...register("floors")}>
                     <option value="01">01</option>
                     <option value="02">02</option>
                     <option value="03">03</option>
@@ -276,7 +287,7 @@ export default function AddPropertyBody() {
           {/* <div className="bg-white card-box border-20 mt-40">
             <h4 className="dash-title-three">Anexar Fotos e Vídeos</h4>
             <div className="dash-input-wrapper mb-20">
-              <label htmlFor="">Arquivos*</label>
+              <label>Arquivos*</label>
 
               <div className="attached-file d-flex align-items-center justify-content-between mb-15">
                 <span>PorpertyImage_01.jpg</span>
@@ -359,12 +370,13 @@ export default function AddPropertyBody() {
             <div className="row">
               <div className="col-12">
                 <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">Endereço*</label>
+                  <label>Endereço*</label>
                   <input
                     type="text"
                     placeholder="Av, Rua, Quadra, Lote, N°"
                     {...register("streetAdress")}
                   />
+                  <p className="form_error">{errors.streetAdress?.message}</p>
                 </div>
               </div>
               <div className="dash-input-wrapper mb-30">
@@ -377,34 +389,36 @@ export default function AddPropertyBody() {
               </div>
               <div className="col-lg-3">
                 <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">CEP*</label>
+                  <label>CEP*</label>
                   <input type="number" placeholder="01153-000 " />
                 </div>
               </div>
               <div className="col-lg-3">
                 <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">Estado*</label>
+                  <label>Estado*</label>
                   <select className="nice-select" {...register("state")}>
                     <option value="SP">São Paulo</option>
                     <option value="MA">Maranhão</option>
                     <option value="GO">Goiás</option>
                   </select>
+                  <p className="form_error">{errors.state?.message}</p>
                 </div>
               </div>
               <div className="col-lg-3">
                 <div className="dash-input-wrapper mb-25">
-                  <label htmlFor="">Cidade*</label>
+                  <label>Cidade*</label>
                   <select className="nice-select" {...register("city")}>
                     <option value="SP">São Paulo</option>
                     <option value="MA">Maranhão</option>
                     <option value="GO">Goiás</option>
                   </select>
+                  <p className="form_error">{errors.city?.message}</p>
                 </div>
               </div>
             </div>
             <div className="col-12">
               <div className="dash-input-wrapper mb-25">
-                <label htmlFor="">Localização*</label>
+                <label>Localização*</label>
                 <div className="position-relative">
                   <input
                     type="text"
