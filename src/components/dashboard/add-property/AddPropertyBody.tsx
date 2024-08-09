@@ -27,7 +27,7 @@ export default function AddPropertyBody() {
     garages: yup.number().required(),
     ceilingHeight: yup.number().required().typeError('Informe pé direito em metros.'),
     constructionYear: yup.number().required(),
-    security: yup.string().required().default("-"),
+    security: yup.string().required("Informe a segurança"),
     floors: yup.number().required(),
     hvac: yup.boolean().required().default(false),
     garden: yup.boolean().required().default(false),
@@ -58,6 +58,7 @@ export default function AddPropertyBody() {
       toast.error("Erro ao cadastrar", {
         position: "top-center",
         hideProgressBar: true,
+        theme: "colored",
       });
     } else {
       toast.success("Imóvel cadastrado com sucesso!", {
