@@ -4,6 +4,7 @@ export interface CreatePropertyDto {
   description: string;
   price: number;
   status: string;
+  classification: string;
   city: string;
   state: string;
   neighborhood: string;

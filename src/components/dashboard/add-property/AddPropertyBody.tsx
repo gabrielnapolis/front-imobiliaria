@@ -1,9 +1,10 @@
 "use client";
 
-import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import DashboardHeaderTwo from "@/layouts/headers/dashboard/DashboardHeaderTwo";
+import { toast } from "react-toastify";
 import Link from "next/link";
+import DashboardHeaderTwo from "@/layouts/headers/dashboard/DashboardHeaderTwo";
 import { CreatePropertyDto } from "@/types/createPropertyDto";
 import {
   addProperty,
@@ -11,7 +12,6 @@ import {
 } from "@/app/dashboard/services/api";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useEffect, useState } from "react";
 import { InputMask } from "@react-input/mask";
 
 export default function AddPropertyBody() {
@@ -24,6 +24,7 @@ export default function AddPropertyBody() {
     price: yup.number().required().typeError("Informe o preço."),
     propertyType: yup.string().required("Informe e descrição do imóvel."),
     status: yup.string().required(),
+    classification: yup.string().required(),
     mts: yup
       .number()
       .required()
@@ -62,13 +63,11 @@ export default function AddPropertyBody() {
     handleSubmit,
     reset,
     clearErrors,
-    setValue,
     formState: { errors },
   } = useForm<CreatePropertyDto>({ resolver: yupResolver(schema) });
 
   const onSubmit = async (data: any) => {
     const response = await addProperty(data);
-    console.log(data);
     if (response && response.error) {
       toast.error("Erro ao cadastrar", {
         position: "top-center",
@@ -125,7 +124,13 @@ export default function AddPropertyBody() {
             <div className="col-md-6">
               <div className="dash-input-wrapper mb-30">
                 <label>Preço*</label>
-                <input placeholder="Preço" {...register("price")} />
+                <input placeholder="Preço" {...register("price")} maxLength={99999999} max={99999999}/>
+                {/* <InputMask
+                  {...register("price")}
+                    mask="___.___.___,__"
+                    replacement={{ _: /\d/ }}
+                    placeholder="Informe o valor do imóvel"
+                  /> */}
                 <p className="form_error">{errors.price?.message}</p>
               </div>
             </div>
@@ -145,21 +150,21 @@ export default function AddPropertyBody() {
               <div className="col-md-3">
                 <div className="dash-input-wrapper mb-30">
                   <label>Venda/Aluguel*</label>
-                  <select className="nice-select" {...register("status")}>
+                  <select className="nice-select"{...register("classification")} >
                     <option value="Aluguel">Aluguel</option>
                     <option value="Venda">Venda</option>
                   </select>
-                  <p className="form_error">{errors.status?.message}</p>
+                  <p className="form_error">{errors.classification?.message}</p>
                 </div>
               </div>
               <div className="col-md-3">
                 <div className="dash-input-wrapper mb-30">
                   <label>Status*</label>
-                  <select className="nice-select">
+                  <select className="nice-select" {...register("status")}>
                     <option value="Ativo">Ativo</option>
                     <option value="Inativo">Inativo</option>
                   </select>
-                  {/* <p className="form_error">{errors.name?.message}</p> */}
+                  <p className="form_error">{errors.status?.message}</p>
                 </div>
               </div>
             </div>
@@ -513,3 +518,4 @@ export default function AddPropertyBody() {
     </div>
   );
 }
+

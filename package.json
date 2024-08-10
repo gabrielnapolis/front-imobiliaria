@@ -13,6 +13,7 @@
     "@fancyapps/ui": "^5.0.33",
     "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^3.3.2",
+    "@nextui-org/react": "^2.4.6",
     "@nextui-org/select": "^2.2.5",
     "@popperjs/core": "^2.11.8",
     "@react-input/mask": "^1.2.5",

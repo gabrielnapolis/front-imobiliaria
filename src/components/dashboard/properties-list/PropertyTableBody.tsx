@@ -44,6 +44,7 @@ export default function PropertyTableBody ()  {
             </div>
           </td>
           <td>{item.propertyType}</td>
+          <td>{item.classification}</td>
           <td>
             <div className={`property-status ${item.status}`}>
               {item.status}

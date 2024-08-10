@@ -3,6 +3,7 @@ export interface PropertyType {
   name: string;
   description?: string;
   price: number;
+  classification: string;
   propertyType: string;
   status: string;
   mts: number;
@@ -24,6 +25,7 @@ export interface PropertyType {
   neighborhood?: string;
   streetAdress?: string;
   constructionYear?: number;
+  gym: boolean;
 
   url_img?: string;
   page: string;
