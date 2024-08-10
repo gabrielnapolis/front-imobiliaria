@@ -16,7 +16,7 @@ const Profile = () => {
                </li>
             </ul>
          </div>
-         <DeleteModal />
+         
       </>
    )
 }
