@@ -36,8 +36,6 @@ const PropertyListBody = () => {
     });
   };
   
-  console.log("propertyBody")
-  
   useEffect(() => {
     getAllProperties().then((data) => {
         setListData(data);

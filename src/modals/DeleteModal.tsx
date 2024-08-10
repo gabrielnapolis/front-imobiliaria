@@ -36,7 +36,7 @@ export default function DeleteModal({ id, handleCloseModal }: DeleteModalProps) 
 
    return (
       <>
-         <div className="classModal" id="deleteModal" tabIndex={-1} aria-hidden="true">
+         <div className="classModal" id="deleteModal" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
                <div className="container">
                   <div className="remove-account-popup text-center modal-content">
