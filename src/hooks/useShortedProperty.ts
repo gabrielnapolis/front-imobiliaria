@@ -6,18 +6,18 @@ import { PropertyType } from "@/data/inner-data/PropertyType";
 import { getAllProperties, getProperties } from "@/app/imoveis/actions";
 
 interface DataType {
+   propertyList:any[];
    itemsPerPage: number;
    page: string;
 }
 
-const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
+const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
 
 
-    let all_property:PropertyType[] = [];
+    let all_property:PropertyType[] =  propertyList;
 
 
-   console.log(all_property)
-   
+
    const { properties, setProperties } = UseProperty();
    const filteredProperties = properties;
    const [itemOffset, setItemOffset] = useState(0);
@@ -71,30 +71,13 @@ const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
       });
    };
 
-   useEffect(() => {
-      // This block will be executed after selectedAmenities has been updated.
-    
-      let req ={
-         location,
-         maxPrice,
-         selectedBedrooms,
-         selectedBathrooms,
-        //   ...selectedAmenities,
-
-         
-      }
-      getProperties(req).then(data=>{setProperties(data)
-         console.log(" search resposne"+data)
-         all_property=data;
-      })
-      setItemOffset(0);
-   }, []);
-
+   
    
 
 
    const endOffset = itemOffset + itemsPerPage;
-   const currentItems = properties.slice(itemOffset, endOffset);
+   const currentItems = properties;
+   
    const pageCount = Math.ceil(properties.length / itemsPerPage);
 
    const handlePageClick = (event: any) => {
@@ -107,12 +90,21 @@ const  UseShortedProperty = ({ itemsPerPage, page }: DataType) => {
    const filteredAllProduct = allProperties.filter(item => item.page === "listing_1");
 
    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-      getAllProperties().then((data)=>{
-      
-         setProperties(data);
+      let req ={
+         location,
+         maxPrice,
+         selectedBedrooms,
+         selectedBathrooms,
+        //   ...selectedAmenities,
+
+         
       }
-       
-      )
+      console.log(" search requested")
+      getProperties(req).then(data=>{
+         setProperties(data)
+         console.log(" search resposne"+data)
+         all_property=data;
+      })
   
    };
 

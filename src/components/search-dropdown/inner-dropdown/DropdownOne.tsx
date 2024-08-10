@@ -158,7 +158,7 @@ const DropdownOne = ({
                </div>
             </div>
             <div className="col-12">
-               <button className="fw-500 text-uppercase tran3s apply-search w-100 mt-40 mb-25">
+               <button onClick={handleSearchChange} className="fw-500 text-uppercase tran3s apply-search w-100 mt-40 mb-25">
                   <i className="fa-light fa-magnifying-glass"></i>
                   <span>Filtrar</span>
                </button>
