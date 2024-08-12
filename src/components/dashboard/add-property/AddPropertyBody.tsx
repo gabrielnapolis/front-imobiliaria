@@ -293,7 +293,7 @@ export default function AddPropertyBody() {
                 <div className="dash-input-wrapper mb-30">
                   <label>Andar*</label>
                   <select className="nice-select" {...register("floors")}>
-                    <option value="">-</option>
+                    <option value="00">-</option>
                     <option value="01">01</option>
                     <option value="02">02</option>
                     <option value="03">03</option>
@@ -478,7 +478,7 @@ export default function AddPropertyBody() {
                 </div>
               </div>
             </div>
-            <div className="col-12">
+            {/* <div className="col-12">
               <div className="dash-input-wrapper mb-25">
                 <label>Localização*</label>
                 <div className="position-relative">
@@ -487,19 +487,19 @@ export default function AddPropertyBody() {
                     placeholder="Insira a localização do Google Maps"
                   />
                   <button className="location-pin tran3s">
-                    {/* <Image src={locationImage} alt="" className="lazy-img m-auto" /> */}
+                    <Image src={locationImage} alt="" className="lazy-img m-auto" />
                   </button>
                 </div>
-                {/* <div className="map-frame mt-30">
+                <div className="map-frame mt-30">
                   <div className="gmap_canvas h-100 w-100">
                     <iframe
                       className="gmap_iframe h-100 w-100"
                       src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=dhaka collage&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                     ></iframe>
                   </div>
-                </div> */}
+                </div>
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="button-group d-inline-flex align-items-center mt-30">

@@ -3,10 +3,9 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3001/",
-  timeout: 5000, // Timeout if necessary
+  timeout: 5000,
   headers: {
     ContentType: "program/json",
-    // Add all custom headers here
   },
 });
 
@@ -25,6 +24,7 @@ const postData = async (url: string,data:any, options = {}) => {
     throw new Error("Could not get data");
   }
 };
+
 const fetchData = async (url: string, options = {}) => {
   try {
  
@@ -35,16 +35,16 @@ const fetchData = async (url: string, options = {}) => {
     throw new Error("Could not get data");
   }
 };
+
 export async function getAllProperties() {
   const url = "/properties";
   const res = await fetchData(url);
-  //console.log(res);
   return res;
 }
+
 export async function getProperties(req:any) {
   const url = "http://localhost:3001/properties/find";
   const res = await postData(url,req);
-  //console.log(res);
   return res;
 }
 
@@ -55,3 +55,20 @@ export async function getCitys(uf: string) {
 
   return data;
 }
+
+export async function deleteProperty(id:number) {
+  const url = `http://localhost:3001/properties/${id}`;
+  const res = await deleteData(url);
+  console.log(res);
+  return res;
+}
+
+const deleteData = async (url: string) => {
+  try {
+    const response = await axios.delete(url);
+    return response.data;
+  } catch (error) {
+    console.error("Error retrieving data:", error);
+    throw new Error("Could not get data");
+  }
+};

@@ -28,23 +28,21 @@ const CommonPropertyFeatureList = ({ params }: { params: { property: any } }) =>
          bed: { category: 'details', featureTitle: "Quartos", count: (value) => value.toString() },
          bath: { category: 'details', featureTitle: "Banheiros", count: (value) => value.toString() },
          kitchen: { category: 'details', featureTitle: "Cozinha", count: (value) => value.toString() },
-         parking: { category: 'details', featureTitle: "Estacionamento", count: (value) => value ? "Sim" : "Não" },
+         parking: { category: 'external', featureTitle: "Estacionamento", count: (value) => value ? "Sim" : "Não" },
          garden: { category: 'details', featureTitle: "Jardim", count: (value) => value ? "Sim" : "Não" },
-         hvac: { category: 'details', featureTitle: "HVAC", count: (value) => value ? "Sim" : "Não" },
+         hvac: { category: 'details', featureTitle: "Ar-condicionado", count: (value) => value ? "Sim" : "Não" },
          garages: { category: 'external', featureTitle: "Garagem", count: (value) => value.toString() },
          playground: { category: 'external', featureTitle: "Playground", count: (value) => value ? "Sim" : "Não" },
          elevator: { category: 'details', featureTitle: "Elevador", count: (value) => value ? "Sim" : "Não" },
          swimmimgpool: { category: 'external', featureTitle: "Piscina", count: (value) => value ? "Sim" : "Não" },
          ceilingHeight: { category: 'details', featureTitle: "Pé Direito", count: (value) => value.toString() },
-         city: { category: 'details', featureTitle: "Cidade", count: (value) => value },
-         state: { category: 'details', featureTitle: "Estado", count: (value) => value },
-         neighborhood: { category: 'details', featureTitle: "Bairro", count: (value) => value },
-         streetAdress: { category: 'details', featureTitle: "Endereço", count: (value) => value },
+         mts: { category: 'details', featureTitle: "M²", count: (value) => value.toString() },
          security: { category: 'external', featureTitle: "Segurança", count: (value) => value },
-         pcdAccess: { category: 'external', featureTitle: "Acessibilidade para PCD", count: (value) => value ? "Sim" : "Não" },
+         pcdAccess: { category: 'details', featureTitle: "Acessibilidade para PCD", count: (value) => value ? "Sim" : "Não" },
          furnished: { category: 'details', featureTitle: "Mobiliado", count: (value) => value ? "Sim" : "Não" },
          wifi: { category: 'details', featureTitle: "WiFi", count: (value) => value ? "Sim" : "Não" },
-         petAllowed: { category: 'external', featureTitle: "Aceita Animais", count: (value) => value ? "Sim" : "Não" }
+         petAllowed: { category: 'details', featureTitle: "Aceita Animais", count: (value) => value ? "Sim" : "Não" },
+         gym: { category: 'external', featureTitle: "Academia", count: (value) => value ? "Sim" : "Não" }
        };
   
       for (const key in property) {

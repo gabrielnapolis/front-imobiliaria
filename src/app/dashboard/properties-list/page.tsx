@@ -1,3 +1,4 @@
+
 import PropertyList from "@/components/dashboard/properties-list";
 import Wrapper from "@/layouts/Wrapper";
 
