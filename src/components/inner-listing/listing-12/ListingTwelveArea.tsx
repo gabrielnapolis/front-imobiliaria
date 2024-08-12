@@ -3,7 +3,7 @@ import UseShortedProperty from "@/hooks/useShortedProperty";
 import DropdownFive from "@/components/search-dropdown/inner-dropdown/DropdownFive";
 import ListingTwoArea from "../listing-02/ListingTwoArea";
 import { useEffect, useState } from "react";
-import { getProperties } from "@/app/imoveis/actions";
+import { getAllProperties, getProperties } from "@/app/imoveis/actions";
 
 const ListingTwelveArea = () => {
   const [propertyList, setPropertyList ] =useState([]);
@@ -28,24 +28,7 @@ const ListingTwelveArea = () => {
   const handleResetFilter = () => {
     resetFilters();
   };
-  useEffect(() => {
-    // This block will be executed after selectedAmenities has been updated.
-  
-    let req ={
-       location,
-       maxPrice,
- 
-      //   ...selectedAmenities,
 
-       
-    }
-    console.log(" search requested")
-    getProperties(req).then(data=>{setPropertyList(data)
-       console.log(" search resposne"+data)
-  
-    })
-
- }, []);
   return (
     <>
       <DropdownFive

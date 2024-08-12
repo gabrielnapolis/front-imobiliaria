@@ -86,17 +86,7 @@ const ListingDropdownModal = ({
                             />
                           </div>
                         </div>
-                        <div className="col-md-6">
-                          <div className="input-box-one mb-35">
-                            <div className="label">Palavras Chave</div>
-                            <input
-                              onChange={handleSearchChange}
-                              type="text"
-                              placeholder="comprar, casa, condomínio, apartamento"
-                              className="type-input"
-                            />
-                          </div>
-                        </div>
+             
                         {/* <div className="col-md-6">
                           <div className="input-box-one mb-35">
                             <div className="label">Property ID</div>

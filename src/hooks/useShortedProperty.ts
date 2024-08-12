@@ -16,7 +16,29 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
 
     let all_property:PropertyType[] =  propertyList;
 
-
+    useEffect(() => {
+      // This block will be executed after selectedAmenities has been updated.
+    
+      let req ={
+         location,
+         maxPrice,
+   
+        //   ...selectedAmenities,
+  
+         
+      }
+      if(propertyList.length!=0){
+        console.log(" search requested")
+        getProperties(req).then(data=>{setProperties(data)
+           console.log(" search resposne"+data)
+      
+        })
+      }else{
+        getAllProperties().then(data=>setProperties(data) )
+      }
+   
+  
+   }, []);
 
    const { properties, setProperties } = UseProperty();
    const filteredProperties = properties;
@@ -61,7 +83,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    // handleAmenityChange
    const handleAmenityChange = (event: ChangeEvent<HTMLInputElement>) => {
       const amenity = event.target.value;
-      
+    
       setSelectedAmenities((prevSelectedAmenities) => {
          if (prevSelectedAmenities.includes(amenity)) {
             return prevSelectedAmenities.filter((a) => a !== amenity);
@@ -69,6 +91,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
             return [...prevSelectedAmenities, amenity];
          }
       });
+      console.log(selectedAmenities)
    };
 
    
@@ -99,7 +122,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
 
          
       }
-      console.log(" search requested")
+      console.log("handle search change requested")
       getProperties(req).then(data=>{
          setProperties(data)
          console.log(" search resposne"+data)

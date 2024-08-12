@@ -54,7 +54,9 @@ const DropdownFive = ({
                                        <div className="label">Localização</div>
                                        <NiceSelect className="nice-select location"
                                           options={[
-                                             { value: "washington", text: "São Luis, MA" },
+                                             { value: "slz", text: "São Luis, MA" },
+                                             { value: "Senador Canedo", text: "Senador Canedo, GO" },
+
                                           ]}
                                           defaultCurrent={0}
                                           onChange={handleLocationChange}
@@ -68,7 +70,7 @@ const DropdownFive = ({
                                           <Link href="#" data-bs-toggle="modal" data-bs-target="#advanceFilterModal" className="search-modal-btn sm rounded-circle tran3s text-uppercase fw-500 d-inline-flex align-items-center justify-content-center me-3">
                                              <i className="fa-light fa-sliders-up"></i>
                                           </Link>
-                                          <button className="fw-500 text-uppercase tran3s search-btn w-auto m0">Buscar</button>
+                                          <button onClick={ handleSearchChange}className="fw-500 text-uppercase tran3s search-btn w-auto m0">Buscar</button>
                                        </div>
                                     </div>
                                  </div>

@@ -50,13 +50,7 @@ const DropdownOne = ({
                </div>
             </div>
             
-            <div className="col-12">
-               <div className="input-box-one mb-35">
-                  <div className="label">Palavas Chave</div>
-                  <input onChange={handleSearchChange} type="text" placeholder="alugar, comprar, casa, apartamento"
-                     className="type-input" />
-               </div>
-            </div>
+       
 
             <div className="col-12">
                <div className="input-box-one mb-50">
