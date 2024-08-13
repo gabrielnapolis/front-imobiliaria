@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { selectProperties } from "@/redux/features/propertySlice";
 import { PropertyType } from "@/data/inner-data/PropertyType";
 import { getAllProperties, getProperties } from "@/app/imoveis/actions";
+import CommonPropertyFeatureList from "@/components/ListingDetails/listing-details-common/CommonPropertyFeatureList";
 
 interface DataType {
    propertyList:any[];
@@ -12,11 +13,42 @@ interface DataType {
 }
 
 const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
-
+   const featureMappings: { [key: string]: { category: string; featureTitle: string; count: (value: any) => string } } = {
+      bed: { category: 'details', featureTitle: "Quartos", count: (value) => value.toString() },
+      bath: { category: 'details', featureTitle: "Banheiros", count: (value) => value.toString() },
+      kitchen: { category: 'details', featureTitle: "Cozinha", count: (value) => value.toString() },
+      parking: { category: 'external', featureTitle: "Estacionamento", count: (value) => value ? "Sim" : "Não" },
+      garden: { category: 'details', featureTitle: "Jardim", count: (value) => value ? "Sim" : "Não" },
+      hvac: { category: 'details', featureTitle: "Ar-condicionado", count: (value) => value ? "Sim" : "Não" },
+      garages: { category: 'external', featureTitle: "Garagem", count: (value) => value.toString() },
+      playground: { category: 'external', featureTitle: "Playground", count: (value) => value ? "Sim" : "Não" },
+      elevator: { category: 'details', featureTitle: "Elevador", count: (value) => value ? "Sim" : "Não" },
+      swimmimgpool: { category: 'external', featureTitle: "Piscina", count: (value) => value ? "Sim" : "Não" },
+      ceilingHeight: { category: 'details', featureTitle: "Pé Direito", count: (value) => value.toString() },
+      mts: { category: 'details', featureTitle: "M²", count: (value) => value.toString() },
+      security: { category: 'external', featureTitle: "Segurança", count: (value) => value },
+      pcdAccess: { category: 'details', featureTitle: "Acessibilidade para PCD", count: (value) => value ? "Sim" : "Não" },
+      furnished: { category: 'details', featureTitle: "Mobiliado", count: (value) => value ? "Sim" : "Não" },
+      wifi: { category: 'details', featureTitle: "WiFi", count: (value) => value ? "Sim" : "Não" },
+      petAllowed: { category: 'details', featureTitle: "Aceita Animais", count: (value) => value ? "Sim" : "Não" },
+      gym: { category: 'external', featureTitle: "Academia", count: (value) => value ? "Sim" : "Não" }
+    };
 
     let all_property:PropertyType[] =  propertyList;
 
-    useEffect(() => {
+    
+
+   const { properties, setProperties } = UseProperty();
+   const filteredProperties = properties;
+   const [currentItems,setCurrentItems] = useState<any[]>([]);
+   const [itemOffset, setItemOffset] = useState(0);
+   const [sortOption, setSortOption] = useState<string>("");
+   const [status, setStatus] = useState<string | null>(null);
+   const [location, setLocation] = useState<string | null>(null);
+   const [selectedBedrooms, setSelectedBedrooms] = useState<string | null>(null);
+   const [selectedBathrooms, setSelectedBathrooms] = useState<string | null>(null);
+   const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
+   useEffect(() => {
       // This block will be executed after selectedAmenities has been updated.
     
       let req ={
@@ -31,53 +63,54 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
         console.log(" search requested")
         getProperties(req).then(data=>{setProperties(data)
            console.log(" search resposne"+data)
-      
+           setCurrentItems(data)
         })
       }else{
-        getAllProperties().then(data=>setProperties(data) )
+        getAllProperties().then(data=>{ 
+         setProperties(data) 
+         if(data){
+            setCurrentItems(data)
+         }}
+        
+      )
       }
    
   
    }, []);
-
-   const { properties, setProperties } = UseProperty();
-   const filteredProperties = properties;
-   const [itemOffset, setItemOffset] = useState(0);
-   const [sortOption, setSortOption] = useState<string>("");
-   const [status, setStatus] = useState<string | null>(null);
-   const [location, setLocation] = useState<string | null>(null);
-   const [selectedBedrooms, setSelectedBedrooms] = useState<string | null>(null);
-   const [selectedBathrooms, setSelectedBathrooms] = useState<string | null>(null);
-   const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
-
    // handleSortOptionChange
    const handleTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
       setSortOption(event.target.value);
+      updatePropertyList()
       setItemOffset(0);
    };
 
    // handleStatusChange
    const handleStatusChange = (event: ChangeEvent<HTMLSelectElement>) => {
       setStatus(event.target.value);
+      updatePropertyList()
       setItemOffset(0);
    };
 
    // handleLocationChange
    const handleLocationChange = (event: ChangeEvent<HTMLSelectElement>) => {
       setLocation(event.target.value);
+      updatePropertyList()
       setItemOffset(0);
    };
 
    // handleBedroomChange
    const handleBedroomChange = (event: ChangeEvent<HTMLSelectElement>) => {
       setSelectedBedrooms(event.target.value);
+      updatePropertyList()
       setItemOffset(0);
    };
 
    // handleBathroomChange
    const handleBathroomChange = (event: ChangeEvent<HTMLSelectElement>) => {
       setSelectedBathrooms(event.target.value);
+      updatePropertyList()
       setItemOffset(0);
+
    };
 
    // handleAmenityChange
@@ -90,16 +123,36 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
          } else {
             return [...prevSelectedAmenities, amenity];
          }
+
+         
       });
+      
       console.log(selectedAmenities)
    };
 
    
    
+   const updatePropertyList =()=>{
+      let req ={
+        // location,
+         maxPrice,
+         selectedBedrooms,
+         selectedBathrooms,
+        //   ...selectedAmenities,
 
+         
+      }
+      console.log("handle search change requested")
+      getProperties(req).then(data=>{
+         setProperties(data)
+         console.log(" search resposne"+data)
+         all_property=data;
+         setCurrentItems(data)
+      })
+   }
 
    const endOffset = itemOffset + itemsPerPage;
-   const currentItems = properties;
+ 
    
    const pageCount = Math.ceil(properties.length / itemsPerPage);
 

@@ -31,20 +31,7 @@ const ListingTwelveArea = () => {
 
   return (
     <>
-      <DropdownFive
-        handlePriceDropChange={handlePriceDropChange}
-        handleSearchChange={handleSearchChange}
-        handleBedroomChange={handleBedroomChange}
-        handleBathroomChange={handleBathroomChange}
-        handlePriceChange={handlePriceChange}
-        maxPrice={maxPrice}
-        priceValue={priceValue}
-        handleResetFilter={handleResetFilter}
-        selectedAmenities={selectedAmenities}
-        handleAmenityChange={handleAmenityChange}
-        handleLocationChange={handleLocationChange}
-        handleStatusChange={handleStatusChange}
-      />
+
       <ListingTwoArea style={true} />
     </>
   )

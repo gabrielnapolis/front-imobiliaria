@@ -12,6 +12,7 @@ import { useEffect, useState } from "react"
 import { getProperties, getAllProperties } from "@/app/imoveis/actions"
 
 const ListingTwoArea =  ({ style }: any) => {
+   const tab_title: string[] = ["Comprar", "Alugar",];
    const [propertyList, setPropertyList ] =useState([]);
    const itemsPerPage = 8;
    const page = "listing_3";
@@ -34,19 +35,131 @@ const ListingTwoArea =  ({ style }: any) => {
       handleStatusChange,
       handleTypeChange,
    } =  UseShortedProperty({propertyList, itemsPerPage, page });
-   console.log("currentItems listing 2",currentItems,propertyList)
+   console.log("currentItems listing 2 current items , property list",currentItems,propertyList,sortedProperties)
    const handleResetFilter = () => {
       resetFilters();
    };
- 
-   return (
+   const [activeTab, setActiveTab] = useState(0);
+
+   const handleTabClick = (index: any) => {
+      setActiveTab(index);
+   };
+   
+
+
+   return (<>
+     <div className="search-wrapper-one layout-one mt-60 lg-mt-40 position-relative">
+         <nav className="search-filter-nav-one d-flex">
+            <div className="nav nav-tabs border-0" role="tablist">
+               {tab_title.map((tab, index) => (
+                  <button key={index} onClick={() => handleTabClick(index)} className={`nav-link ${activeTab === index ? "active" : ""}`} id="buy-tab" type="button">{tab}</button>
+               ))}
+            </div>
+         </nav>
+
+         <div className="bg-wrapper p0 border-0 rounded-0">
+            <div className="tab-content">
+               <div className={`tab-pane show ${activeTab === 0 ? "active" : ""}`} id="buy">
+                  <form onSubmit={(e) => { e.preventDefault(); handleSearchChange; }} className="md-pt-20">
+                     <div className="row gx-0 align-items-center">
+                        <div className="col-lg-3">
+                           <div className="input-box-one border-left">
+                              <div className="label">Estou buscando por...</div>
+                              <NiceSelect className="nice-select fw-normal"
+                                 options={[
+                                    { value: "apartments", text: " Apartamentos" },
+                                    { value: "condos", text: "Escritórios" },
+                                    { value: "houses", text: "Casas" },
+                                    { value: "industrial", text: "Industrial" },
+                                    { value: "villas", text: "Lotes" },
+                                 ]}
+                                 defaultCurrent={0}
+                                 onChange={handleTypeChange}
+                                 name=""
+                                 placeholder="" />
+                           </div>
+                        </div>
+                        <div className="col-lg-4">
+                           <div className="input-box-one border-left">
+                              <div className="label">Localização</div>
+                              <NiceSelect className="nice-select location fw-normal"
+                                 options={[
+                                    { value: "germany", text: "Florianopolis, SC" },
+                                    { value: "dhaka", text: "Sao Luis, MA" },
+                                    { value: "mexico", text: "Goiania, GO" },
+                                 ]}
+                                 defaultCurrent={0}
+                                 onChange={handleLocationChange}
+                                 name=""
+                                 placeholder="" />
+                           </div>
+                        </div>
+                       
+                        <div className="col-xl-2 col-lg-1">
+                           <div className="input-box-one p0 ms-xl-5 md-mt-20">
+                              <button className="fw-500 text-uppercase tran3s search-btn-two w-100 h-100 pt-45 lg-pt-30 md-pt-20 pb-45 lg-pb-30 md-pb-20 fs-2"><i className="fa-light fa-magnifying-glass"></i></button>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+
+               <div className={`tab-pane show ${activeTab === 1 ? "active" : ""}`} id="buy">
+                  <form onSubmit={(e) => { e.preventDefault(); handleSearchChange; }} className="md-pt-20">
+                     <div className="row gx-0 align-items-center">
+                        <div className="col-lg-3">
+                           <div className="input-box-one border-left">
+                              <div className="label">Estou buscando por...</div>
+                              <NiceSelect className="nice-select fw-normal"
+                                 options={[
+                                    { value: "apartments", text: " Apartamentos" },
+                                    { value: "condos", text: "Escritórios" },
+                                    { value: "houses", text: "Casas" },
+                                    { value: "industrial", text: "Industrial" },
+                                    { value: "villas", text: "Lotes" },
+                                 ]}
+                                 defaultCurrent={0}
+                                 onChange={handleTypeChange}
+                                 name=""
+                                 placeholder="" />
+                           </div>
+                        </div>
+                        <div className="col-lg-4">
+                           <div className="input-box-one border-left">
+                              <div className="label">Localização</div>
+                              <NiceSelect className="nice-select location fw-normal"
+                                 options={[
+                                    { value: "germany", text: "Florianopolis, SC" },
+                                    { value: "dhaka", text: "Sao Luis, MA" },
+                                    { value: "mexico", text: "Goiania, GO" },
+                                    { value: "mexico", text: "Goiania, GO" },
+                                 ]}
+                                 defaultCurrent={0}
+                                 onChange={handleLocationChange}
+                                 name=""
+                                 placeholder="" />
+                           </div>
+                        </div>
+                        
+                        <div className="col-xl-2 col-lg-1">
+                           <div className="input-box-one p0 ms-xl-5 md-mt-20">
+                              <button className="fw-500 text-uppercase tran3s search-btn-two w-100 h-100 pt-45 lg-pt-30 md-pt-20 pb-45 lg-pb-30 md-pb-20 fs-2"><i className="fa-light fa-magnifying-glass"></i></button>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+
       <div className={`property-listing-six ${style ? "pt-150 xl-pt-100 pb-170 xl-pb-120" : "bg-pink-two pt-110 md-pt-80 pb-150 xl-pb-120 mt-150 xl-mt-120"}`}>
          <div className="container container-large">
             <div className="row">
                <div className="col-lg-8">
                   <div className="ps-xxl-5">
                      <div className="listing-header-filter d-sm-flex justify-content-between align-items-center mb-40 lg-mb-30">
-                        <div>Mostrando <span className="color-dark fw-500">{itemOffset + 1}–{itemOffset + currentItems.length}</span> de <span
+                        <div>Mostrando <span className="color-dark fw-500">{itemOffset + 1}–{itemOffset + sortedProperties.length}</span> de <span
                            className="color-dark fw-500">{sortedProperties.length}</span> resultados</div>
                         <div className="d-flex align-items-center xs-mt-20">
                            <div className="short-filter d-flex align-items-center">
@@ -68,7 +181,7 @@ const ListingTwoArea =  ({ style }: any) => {
                         </div>
                      </div>
 
-                     {currentItems.map((item: any) => (
+                     {sortedProperties.map((item: any) => (
                         <div key={item.id} className={`listing-card-seven border-20 p-20 mb-50 wow fadeInUp ${style ? "grey-bg" : ""}`}>
                            <div className="d-flex flex-wrap layout-one">
                               <div className={`img-gallery position-relative z-1 border-20 overflow-hidden ${item.url_img}`}>
@@ -146,6 +259,7 @@ const ListingTwoArea =  ({ style }: any) => {
             </div>
          </div>
       </div>
+      </>
    )
 }
 
