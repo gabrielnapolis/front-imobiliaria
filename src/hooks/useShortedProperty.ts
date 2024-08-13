@@ -134,7 +134,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    
    const updatePropertyList =()=>{
       let req ={
-        // location,
+         location,
          maxPrice,
          selectedBedrooms,
          selectedBathrooms,
