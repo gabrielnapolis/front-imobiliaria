@@ -14,7 +14,8 @@ const DropdownOne = ({
    selectedAmenities,
    handleAmenityChange,
    handleLocationChange,
-   handleStatusChange, }: any) => {
+   handleStatusChange,
+   handleClassificationChange }: any) => {
 
    return (
       <form onSubmit={(e) => e.preventDefault()}>
@@ -24,11 +25,11 @@ const DropdownOne = ({
                   <div className="label">Estou buscando por...</div>
                   <NiceSelect className="nice-select fw-normal"
                      options={[
-                        { value: "Aluguel", text: "Aluguel" },
-                        { value: "Venda", text: "Venda" },
+                        { value: "aluguel", text: "Aluguel" },
+                        { value: "venda", text: "Venda" },
                      ]}
                      defaultCurrent={0}
-                     onChange={handleStatusChange}
+                     onChange={handleClassificationChange}
                      name=""
                      placeholder="" />
                </div>
@@ -44,7 +45,7 @@ const DropdownOne = ({
                         { value: "Condomínio", text: "Condomínio" },
                      ]}
                      defaultCurrent={0}
-                     onChange={handleStatusChange}
+                     onChange={handleClassificationChange}
                      name=""
                      placeholder="" />
                </div>

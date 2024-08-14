@@ -43,6 +43,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    const [currentItems,setCurrentItems] = useState<any[]>([]);
    const [itemOffset, setItemOffset] = useState(0);
    const [sortOption, setSortOption] = useState<string>("");
+   const [  classification, setClassificationChange] = useState<string>("");
    const [status, setStatus] = useState<string | null>(null);
    const [location, setLocation] = useState<string | null>(null);
    const [selectedBedrooms, setSelectedBedrooms] = useState<string | null>(null);
@@ -78,8 +79,8 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
   
    }, []);
    // handleSortOptionChange
-   const handleTypeChange = (event: ChangeEvent<HTMLSelectElement>) => {
-      setSortOption(event.target.value);
+   const handleClassificationChange = (event: ChangeEvent<HTMLSelectElement>) => {
+      setClassificationChange(event.target.value);
       updatePropertyList()
       setItemOffset(0);
    };
@@ -138,6 +139,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
          maxPrice,
          selectedBedrooms,
          selectedBathrooms,
+         classification
         //   ...selectedAmenities,
 
          
@@ -160,6 +162,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
       const newOffset = event.selected * itemsPerPage;
       setItemOffset(newOffset);
    };
+   
 
    // All products
    const allProperties = useSelector(selectProperties);
@@ -171,6 +174,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
          maxPrice,
          selectedBedrooms,
          selectedBathrooms,
+         classification
         //   ...selectedAmenities,
 
          
@@ -229,7 +233,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
       handleSearchChange,
       handleBedroomChange,
       handleLocationChange,
-      handleTypeChange,
+      handleClassificationChange,
       handleStatusChange,
       handleBathroomChange,
       handlePriceChange,

@@ -33,7 +33,7 @@ const ListingTwoArea =  ({ style }: any) => {
       handleAmenityChange,
       handleLocationChange,
       handleStatusChange,
-      handleTypeChange,
+      handleClassificationChange,
    } =  UseShortedProperty({propertyList, itemsPerPage, page });
    console.log("currentItems listing 2 current items , property list",currentItems,propertyList,sortedProperties)
    const handleResetFilter = () => {
@@ -74,7 +74,7 @@ const ListingTwoArea =  ({ style }: any) => {
                                     { value: "villas", text: "Lotes" },
                                  ]}
                                  defaultCurrent={0}
-                                 onChange={handleTypeChange}
+                                 onChange={handleClassificationChange}
                                  name=""
                                  placeholder="" />
                            </div>
@@ -119,7 +119,7 @@ const ListingTwoArea =  ({ style }: any) => {
                                     { value: "villas", text: "Lotes" },
                                  ]}
                                  defaultCurrent={0}
-                                 onChange={handleTypeChange}
+                                 onChange={handleClassificationChange}
                                  name=""
                                  placeholder="" />
                            </div>
@@ -174,7 +174,7 @@ const ListingTwoArea =  ({ style }: any) => {
                                     { value: "price_high", text: "Maior Preço" },
                                  ]}
                                  defaultCurrent={0}
-                                 onChange={handleTypeChange}
+                                 onChange={handleStatusChange}
                                  name=""
                                  placeholder="" />
                            </div>
@@ -252,6 +252,7 @@ const ListingTwoArea =  ({ style }: any) => {
                            handleAmenityChange={handleAmenityChange}
                            handleLocationChange={handleLocationChange}
                            handleStatusChange={handleStatusChange}
+                           handleClassificationChange={handleClassificationChange}
                         />
                      </div>
                   </div>
