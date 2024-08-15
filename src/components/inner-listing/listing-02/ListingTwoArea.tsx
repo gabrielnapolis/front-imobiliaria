@@ -33,6 +33,7 @@ const ListingTwoArea =  ({ style }: any) => {
       handleLocationChange,
       handleStatusChange,
       handleClassificationChange,
+      handleTypeChange
    } =  UseShortedProperty({propertyList, itemsPerPage, page });
    console.log("currentItems listing 2 current items , property list",currentItems,propertyList,sortedProperties)
    const handleResetFilter = () => {

@@ -45,7 +45,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    const [sortOption, setSortOption] = useState<string>("");
    const [classification, setClassificationChange] = useState<string>("");
    const [status, setStatus] = useState<string | null>(null);
-   const [type, settype] = useState<string | null>(null);
+   const [type, setType] = useState<string | null>(null);
    const [location, setLocation] = useState<string | null>(null);
    const [selectedBedrooms, setSelectedBedrooms] = useState<string | null>(null);
    const [selectedBathrooms, setSelectedBathrooms] = useState<string | null>(null);
@@ -94,6 +94,11 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    // handleStatusChange
    const handleStatusChange = async (event: ChangeEvent<HTMLSelectElement>) => {
       setStatus(event.target.value);
+      updatePropertyList()
+      setItemOffset(0);
+   };
+   const handleTypeChange = async (event: ChangeEvent<HTMLSelectElement>) => {
+      setType(event.target.value);
       updatePropertyList()
       setItemOffset(0);
    };
@@ -251,6 +256,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
       selectedAmenities,
       handleAmenityChange,
       pageCount,
+      handleTypeChange
    };
 };
 
