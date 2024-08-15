@@ -43,8 +43,9 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    const [currentItems,setCurrentItems] = useState<any[]>([]);
    const [itemOffset, setItemOffset] = useState(0);
    const [sortOption, setSortOption] = useState<string>("");
-   const [  classification, setClassificationChange] = useState<string>("");
+   const [classification, setClassificationChange] = useState<string>("");
    const [status, setStatus] = useState<string | null>(null);
+   const [type, settype] = useState<string | null>(null);
    const [location, setLocation] = useState<string | null>(null);
    const [selectedBedrooms, setSelectedBedrooms] = useState<string | null>(null);
    const [selectedBathrooms, setSelectedBathrooms] = useState<string | null>(null);
@@ -57,7 +58,8 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
          maxPrice,
          selectedBedrooms,
          selectedBathrooms,
-         classification
+         classification,
+         type
         //   ...selectedAmenities,
   
          
@@ -137,13 +139,14 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
 
    
    
-   const updatePropertyList =()=>{
+   const updatePropertyList = async  ()=>{
       let req ={
          location,
          maxPrice,
          selectedBedrooms,
          selectedBathrooms,
-         classification
+         classification,
+         type
         //   ...selectedAmenities,
 
          
@@ -162,7 +165,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    
    const pageCount = Math.ceil(properties.length / itemsPerPage);
 
-   const handlePageClick = (event: any) => {
+   const handlePageClick = async (event: any) => {
       const newOffset = event.selected * itemsPerPage;
       setItemOffset(newOffset);
    };
@@ -172,10 +175,11 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    const allProperties = useSelector(selectProperties);
    const filteredAllProduct = allProperties.filter(item => item.page === "listing_1");
 
-   const handleSearchChange =  async(e: React.ChangeEvent<HTMLInputElement>): void => {
+   const handleSearchChange =  async(e: React.ChangeEvent<HTMLInputElement>): Promise<void> => {
       let req ={
          location,
          maxPrice,
+         type,
          selectedBedrooms,
          selectedBathrooms,
          classification

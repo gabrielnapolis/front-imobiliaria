@@ -84,9 +84,10 @@ const ListingTwoArea =  ({ style }: any) => {
                               <div className="label">Localização</div>
                               <NiceSelect className="nice-select location fw-normal"
                                  options={[
-                                    { value: "germany", text: "Florianopolis, SC" },
-                                    { value: "dhaka", text: "Sao Luis, MA" },
-                                    { value: "mexico", text: "Goiania, GO" },
+                                    { value: "florianopolis", text: "Florianopolis, SC" },
+                                    { value: "saoluis", text: "Sao Luis, MA" },
+                                    { value: "goiania", text: "Goiania, GO" },
+                                    { value: "senador canedo", text: "Senador Canedo, GO" },
                                  ]}
                                  defaultCurrent={0}
                                  onChange={handleLocationChange}
@@ -128,12 +129,12 @@ const ListingTwoArea =  ({ style }: any) => {
                            <div className="input-box-one border-left">
                               <div className="label">Localização</div>
                               <NiceSelect className="nice-select location fw-normal"
-                                 options={[
-                                    { value: "germany", text: "Florianopolis, SC" },
-                                    { value: "dhaka", text: "Sao Luis, MA" },
-                                    { value: "mexico", text: "Goiania, GO" },
-                                    { value: "mexico", text: "Goiania, GO" },
-                                 ]}
+                                options={[
+                                 { value: "florianopolis", text: "Florianopolis, SC" },
+                                 { value: "saoluis", text: "Sao Luis, MA" },
+                                 { value: "goiania", text: "Goiania, GO" },
+                                 { value: "senador canedo", text: "Senador Canedo, GO" },
+                              ]}
                                  defaultCurrent={0}
                                  onChange={handleLocationChange}
                                  name=""

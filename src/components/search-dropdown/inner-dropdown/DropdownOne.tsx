@@ -101,25 +101,7 @@ const DropdownOne = ({
                </div>
             </div>
 
-            <div className="col-12">
-               <h6 className="block-title fw-bold mb-30">Comodidades</h6>
-               <ul
-                  className="style-none d-flex flex-wrap justify-content-between filter-input">
-                  {ammenities_data.map((list, i) => (
-                     <li key={i}>
-                        <input
-                           type="checkbox"
-                           name="Amenities"
-                           value={list}
-                           checked={selectedAmenities.includes(list)}
-                           onChange={handleAmenityChange}
-                        />
-                        <label>{list}</label>
-                     </li>
-                  ))}
-               </ul>
-            </div>
-
+          
             <div className="col-12">
                <h6 className="block-title fw-bold mt-25 mb-15">Valor</h6>
                <div className="price-ranger">

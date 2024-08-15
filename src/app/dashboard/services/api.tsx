@@ -26,7 +26,7 @@ const post = async (url: string, data: any, options = {}) => {
   try {
     const response = await axios.post(url, data, options);
     if (response.status == 201 || response.status == 200) {
-      return { data: data, error: null };
+      return { data:  response, error: null };
     } 
   } catch (error) {
     return { error: error }
