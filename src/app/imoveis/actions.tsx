@@ -2,7 +2,7 @@ import { PropertyType } from "@/data/inner-data/PropertyType";
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3001/",
+  baseURL: "http://3.141.38.117:3001/",
   timeout: 5000,
   headers: {
     ContentType: "program/json",
@@ -37,13 +37,13 @@ const fetchData = async (url: string, options = {}) => {
 };
 
 export async function getAllProperties() {
-  const url = "/properties";
+  const url = "http://3.141.38.117:3001/properties";
   const res = await fetchData(url);
   return res;
 }
 
 export async function getProperties(req:any) {
-  const url = "http://localhost:3001/properties/find";
+  const url = "http://3.141.38.117:3001/properties/find";
   const res = await postData(url,req);
   return res;
 }
@@ -57,7 +57,7 @@ export async function getCitys(uf: string) {
 }
 
 export async function deleteProperty(id:number) {
-  const url = `http://localhost:3001/properties/${id}`;
+  const url = `http://3.141.38.117:3001/properties/${id}`;
   const res = await deleteData(url);
   console.log(res);
   return res;

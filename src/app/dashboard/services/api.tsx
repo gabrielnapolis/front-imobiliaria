@@ -2,7 +2,7 @@ import { CreatePropertyDto } from "@/types/createPropertyDto";
 import axios from "axios";
 
 export async function login(email: string, password: string) {
-  const url = "http://localhost:3001/users/login";
+  const url = "http://3.141.38.117:3001/users/login";
   try{
     const res = await postData(url, { email, password });
     console.log("chamada: ",res)
@@ -16,7 +16,7 @@ export async function login(email: string, password: string) {
 }
 
 export async function addProperty(property: CreatePropertyDto) {
-  const url = "http://localhost:3001/properties";
+  const url = "http://3.141.38.117:3001/properties";
   const res = await post(url, property);
   return res;
 }
