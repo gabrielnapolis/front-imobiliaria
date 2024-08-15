@@ -75,7 +75,7 @@ const ListingTwoArea =  ({ style }: any) => {
                                     { value: "villas", text: "Lotes" },
                                  ]}
                                  defaultCurrent={0}
-                                 onChange={handleClassificationChange}
+                                 onChange={ handleTypeChange}
                                  name=""
                                  placeholder="" />
                            </div>
