@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { getPropertiesByID } from "@/app/imoveis/actions";
 
 
-const index = ({ params }: { params: { id: number } }) => {
+const Index = ({ params }: { params: { id: number } }) => {
 
   const [property, setProperty] = useState<any>(null);
 
@@ -32,4 +32,4 @@ const index = ({ params }: { params: { id: number } }) => {
   );
 };
 
-export default index;
+export default Index;
