@@ -1,12 +1,13 @@
 "use client";
 import { useState } from "react";
+import { login } from "@/app/dashboard/services/api";
 import Link from "next/link";
 import { toast } from "react-toastify";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-interface FormData {
+interface FormLogin {
   email: string;
   password: string;
 }
@@ -24,18 +25,26 @@ export default function LoginForm() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormData>({ resolver: yupResolver(schema) });
-  const onSubmit = (data: FormData) => {
-    const notify = () =>
-      toast("Login successfully", { position: "top-center" });
-    notify();
-    reset();
-  };
+  } = useForm<FormLogin>({ resolver: yupResolver(schema) });
 
-  const [isPasswordVisible, setPasswordVisibility] = useState(false);
+  const onSubmit = async (data: FormLogin) => {
+    const response = await login(data.email, data.password)
+    // console.log("response:", response);
 
-  const togglePasswordVisibility = () => {
-    setPasswordVisibility(!isPasswordVisible);
+    if (response && response.error) {
+      toast.error("Senha ou E-mail incorretos", {
+        position: "top-center",
+        hideProgressBar: true,
+        theme: "colored",
+      });
+    } else {
+      toast.success("Login realizado com sucesso!", {
+        position: "top-center",
+        theme: "colored",
+        hideProgressBar: true,
+      });
+      reset();
+    }
   };
 
   return (
@@ -75,6 +84,7 @@ export default function LoginForm() {
                       <input
                         className="form-control form-control-lg"
                         placeholder="Senha"
+                        type="password"
                         {...register("password")}
                       />
                     </div>
@@ -96,6 +106,4 @@ export default function LoginForm() {
       </section>
     </form>
   );
-};
-
-
+}

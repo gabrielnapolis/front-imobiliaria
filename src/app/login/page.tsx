@@ -1,4 +1,5 @@
 import LoginForm from "@/components/forms/LoginForm";
+import Wrapper from "@/layouts/Wrapper";
 
 export const metadata = {
   title: "Login - Zucheratto",
@@ -6,6 +7,8 @@ export const metadata = {
 
 export default function Index() {
   return (
-    <LoginForm/>
+    <Wrapper>
+      <LoginForm/>
+    </Wrapper>
   );
 }
