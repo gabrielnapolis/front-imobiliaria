@@ -6,7 +6,7 @@ export async function login(email: string, password: string) {
   try{
     const res = await postData(url, { email, password });
     console.log("chamada: ",res)
-    localStorage.setItem("token", JSON.stringify(res.data));
+    localStorage.setItem("token", JSON.stringify(res.access_token));
   return res;
   }catch(e){
     console.log(e)
