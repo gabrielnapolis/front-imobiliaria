@@ -74,7 +74,7 @@ const ContactArea = () => {
                <div className="col-xl-5 col-lg-6 d-flex order-lg-first">
                   <div className="contact-map-banner w-100">
                      <div className="gmap_canvas h-100 w-100">
-                        <iframe className="gmap_iframe h-100 w-100" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=dhaka collage&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                        <iframe className="gmap_iframe h-100 w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1993.0055243646566!2d-44.295011748431676!3d-2.5032402999999905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f68c2db960c847%3A0x7d3b90b24313f0e9!2sLos%20Angeles!5e0!3m2!1spt-BR!2sbr!4v1723688878259!5m2!1spt-BR!2sbr" width="600" height="400" loading="lazy"></iframe>
                      </div>
                   </div>
                </div>

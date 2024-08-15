@@ -14,7 +14,6 @@ const ListingTwelveArea = () => {
 
   return (
     <>
-
       <ListingTwoArea style={true} />
     </>
   )

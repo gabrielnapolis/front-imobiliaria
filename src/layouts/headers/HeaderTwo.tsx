@@ -28,29 +28,7 @@ const HeaderTwo = ({ style_1, style_2 }: any) => {
                            <Image src={style_2 ? logo_3 : style_1 ? logo_2 : logo_1} alt="" />
                         </Link>
                      </div>
-
-                     <div className="right-widget ms-auto me-3 me-lg-0 order-lg-3">
-                        <ul className="d-flex align-items-center style-none">
-                           {!style_2 ? (<>
-                              <li className="d-none d-xl-block">
-                                 <button onClick={() => setOffCanvas(true)} style={{ cursor: "pointer" }} className="sidenavbtn rounded-circle tran3s" type="button">
-                                    <i className="fa-sharp fa-light fa-bars-filter"></i>
-                                 </button>
-                              </li></>) : (<>
-                                 <li className="d-none d-md-flex align-items-center login-btn-one me-4 me-xxl-5">
-                                    <i className="fa-regular fa-phone-volume"></i>
-                                    <Link href="tel:+757-699-4478" className="tran3s">+757 699-4478</Link>
-                                 </li>
-                                 <li>
-                                    <Link href="#" data-bs-toggle="modal" data-bs-target="#loginModal" className="login-btn-two rounded-circle tran3s d-flex align-items-center justify-content-center"><i className="fa-regular fa-lock"></i></Link>
-                                 </li>
-                                 <li>
-                                    <a onClick={() => setIsSearch(true)} style={{ cursor: "pointer" }} className="search-btn-one rounded-circle tran3s d-flex align-items-center justify-content-center"><i className="bi bi-search"></i></a>
-                                 </li>
-                              </>)}
-                        </ul>
-                     </div>
-
+    
                      <nav className="navbar navbar-expand-lg p0 ms-lg-5 order-lg-2">
                         <button className="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse"
                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -66,8 +44,6 @@ const HeaderTwo = ({ style_1, style_2 }: any) => {
             </div>
          </div>
 
-         <Offcanvas offCanvas={offCanvas} setOffCanvas={setOffCanvas} />
-         <LoginModal />
          <HeaderSearchbar isSearch={isSearch} setIsSearch={setIsSearch} />
       </>
    )
