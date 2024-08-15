@@ -34,7 +34,7 @@ const ListingTwoArea =  ({ style }: any) => {
       handleStatusChange,
       handleClassificationChange,
       handleTypeChange
-   } =  UseShortedProperty({propertyList, itemsPerPage, page });
+   } =  UseShortedProperty({ itemsPerPage, page });
    console.log("currentItems listing 2 current items , property list",currentItems,propertyList,sortedProperties)
    const handleResetFilter = () => {
       resetFilters();
@@ -82,12 +82,14 @@ const ListingTwoArea =  ({ style }: any) => {
                                     <div className="input-box-one border-left">
                                        <div className="label">Localização</div>
                                        <NiceSelect className="nice-select location fw-normal"
-                                          options={[
-                                             { value: "florianopolis", text: "Florianopolis, SC" },
-                                             { value: "saoluis", text: "Sao Luis, MA" },
-                                             { value: "goiania", text: "Goiania, GO" },
-                                             { value: "senador canedo", text: "Senador Canedo, GO" },
-                                          ]}
+
+                                             options={[
+                                                { value: "florianopolis", text: "Florianopolis, SC" },
+                                                { value: "saoluis", text: "Sao Luis, MA" },
+                                                { value: "goiania", text: "Goiania, GO" },
+                                                { value: "Senador Canedo", text: "Senador Canedo, GO" },
+                                             ]}
+                                          
                                           defaultCurrent={0}
                                           onChange={handleLocationChange}
                                           name=""

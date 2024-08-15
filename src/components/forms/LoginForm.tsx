@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { redirect, useRouter } from "next/navigation";
 
 interface FormLogin {
   email: string;
@@ -26,7 +27,7 @@ export default function LoginForm() {
     reset,
     formState: { errors },
   } = useForm<FormLogin>({ resolver: yupResolver(schema) });
-
+  const router = useRouter()
   const onSubmit = async (data: FormLogin) => {
     const response = await login(data.email, data.password)
     // console.log("response:", response);
@@ -44,6 +45,7 @@ export default function LoginForm() {
         hideProgressBar: true,
       });
       reset();
+      router.replace('/dashboard/properties-list')
     }
   };
 
@@ -91,6 +93,7 @@ export default function LoginForm() {
 
                     <div className="col-12">
                       <button
+                     
                         type="submit"
                         className="btn-two w-100 text-uppercase d-block mt-20"
                       >

@@ -8,6 +8,7 @@ import icon_2 from "@/assets/images/dashboard/icon/icon_13.svg";
 import icon_3 from "@/assets/images/dashboard/icon/icon_14.svg";
 import icon_4 from "@/assets/images/dashboard/icon/icon_15.svg";
 import DashboardChart from "./DashboardChart";
+import { useRouter } from "next/router";
 
 interface DataType {
   id: number;
@@ -46,6 +47,12 @@ const dashboard_card_data: DataType[] = [
 ];
 
 const DashboardBody = () => {
+  const router = useRouter()
+  const token =!window.localStorage.getItem("token")
+  console.log("token",token)
+  if (token) {
+    router.replace('/login')
+  }
   const selectHandler = (e: any) => {};
 
   return (

@@ -58,7 +58,10 @@ const DropdownOne = ({
                   <div className="label">Localização</div>
                   <NiceSelect className="nice-select location fw-normal"
                      options={[
-                        { value: "slz", text: "São Luís do Maranhã" },
+                        { value: "florianopolis", text: "Florianopolis, SC" },
+                        { value: "saoluis", text: "Sao Luis, MA" },
+                        { value: "goiania", text: "Goiania, GO" },
+                        { value: "Senador Canedo", text: "Senador Canedo, GO" },
                      ]}
                      defaultCurrent={0}
                      onChange={handleLocationChange}

@@ -4,8 +4,9 @@ import axios from "axios";
 export async function login(email: string, password: string) {
   const url = "http://localhost:3001/users/login";
   try{
-    const res = await post(url, { email, password });
+    const res = await postData(url, { email, password });
     console.log("chamada: ",res)
+    localStorage.setItem("token", JSON.stringify(res.data));
   return res;
   }catch(e){
     console.log(e)
@@ -36,5 +37,14 @@ const post = async (url: string, data: any, options = {}) => {
     } 
   } catch (error) {
     return { error: error }
+  }
+};
+const postData = async (url: string,data:any, options = {}) => {
+  try {
+    const response = await axios.post(url,data, options,);
+    return response.data;
+  } catch (error) {
+    console.error("Error retrieving data:", error);
+    throw new Error("Could not get data");
   }
 };

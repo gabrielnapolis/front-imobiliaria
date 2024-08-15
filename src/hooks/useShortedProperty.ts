@@ -7,12 +7,12 @@ import { getAllProperties, getProperties } from "@/app/imoveis/actions";
 import CommonPropertyFeatureList from "@/components/ListingDetails/listing-details-common/CommonPropertyFeatureList";
 
 interface DataType {
-   propertyList:any[];
+
    itemsPerPage: number;
    page: string;
 }
 
-const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
+const  UseShortedProperty = ({itemsPerPage, page }: DataType) => {
    const featureMappings: { [key: string]: { category: string; featureTitle: string; count: (value: any) => string } } = {
       bed: { category: 'details', featureTitle: "Quartos", count: (value) => value.toString() },
       bath: { category: 'details', featureTitle: "Banheiros", count: (value) => value.toString() },
@@ -34,8 +34,6 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
       gym: { category: 'external', featureTitle: "Academia", count: (value) => value ? "Sim" : "Não" }
     };
 
-    let all_property:PropertyType[] =  propertyList;
-
     
 
    const { properties, setProperties } = UseProperty();
@@ -43,12 +41,12 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    const [currentItems,setCurrentItems] = useState<any[]>([]);
    const [itemOffset, setItemOffset] = useState(0);
    const [sortOption, setSortOption] = useState<string>("");
-   const [classification, setClassificationChange] = useState<string>("");
+   const [classification, setClassificationChange] = useState<string>("venda");
    const [status, setStatus] = useState<string | null>(null);
    const [type, setType] = useState<string | null>(null);
    const [location, setLocation] = useState<string | null>(null);
-   const [selectedBedrooms, setSelectedBedrooms] = useState<string | null>(null);
-   const [selectedBathrooms, setSelectedBathrooms] = useState<string | null>(null);
+   const [selectedBedrooms, setSelectedBedrooms] = useState<string | null>("1");
+   const [selectedBathrooms, setSelectedBathrooms] = useState<string | null>("1");
    const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
    useEffect(() => {
       // This block will be executed after selectedAmenities has been updated.
@@ -65,7 +63,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
          
       }
       console.log("use effect",req)
-      if(propertyList.length!=0){
+      if(properties.length!=0){
         console.log(" search requested")
         getProperties(req).then(data=>{
          //setProperties(data)
@@ -86,42 +84,35 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    }, []);
    // handleSortOptionChange
    const handleClassificationChange = async (event: ChangeEvent<HTMLSelectElement>) => {
-      setClassificationChange(event.target.value);
-      updatePropertyList()
+     await setClassificationChange(event.target.value);
       setItemOffset(0);
    };
 
    // handleStatusChange
    const handleStatusChange = async (event: ChangeEvent<HTMLSelectElement>) => {
-      setStatus(event.target.value);
-      updatePropertyList()
-      setItemOffset(0);
+      await setStatus(event.target.value);
+
    };
    const handleTypeChange = async (event: ChangeEvent<HTMLSelectElement>) => {
-      setType(event.target.value);
-      updatePropertyList()
-      setItemOffset(0);
+      await setType(event.target.value);
    };
 
    // handleLocationChange
    const handleLocationChange = async (event: ChangeEvent<HTMLSelectElement>) => {
       await setLocation(event.target.value);
-      updatePropertyList()
-      setItemOffset(0);
+  
    };
 
    // handleBedroomChange
    const handleBedroomChange =  async (event: ChangeEvent<HTMLSelectElement>) => {
       await setSelectedBedrooms(event.target.value);
-      updatePropertyList()
-      setItemOffset(0);
+     
    };
 
    // handleBathroomChange
    const handleBathroomChange = async (event: ChangeEvent<HTMLSelectElement>) => {
-      setSelectedBathrooms(event.target.value);
-      updatePropertyList()
-      setItemOffset(0);
+      await setSelectedBathrooms(event.target.value);
+ 
 
    };
 
@@ -160,7 +151,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
       getProperties(req).then(data=>{
          setProperties(data)
          console.log(" search resposne"+data)
-         all_property=data;
+      
          setCurrentItems(data)
       })
    }
@@ -196,7 +187,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
       getProperties(req).then(data=>{
          setProperties(data)
          console.log(" search resposne"+data)
-         all_property=data;
+  
       })
   
    };
