@@ -51,18 +51,22 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    const [selectedAmenities, setSelectedAmenities] = useState<string[]>([]);
    useEffect(() => {
       // This block will be executed after selectedAmenities has been updated.
-    
+     
       let req ={
          location,
          maxPrice,
-   
+         selectedBedrooms,
+         selectedBathrooms,
+         classification
         //   ...selectedAmenities,
   
          
       }
+      console.log("use effect",req)
       if(propertyList.length!=0){
         console.log(" search requested")
-        getProperties(req).then(data=>{setProperties(data)
+        getProperties(req).then(data=>{
+         //setProperties(data)
            console.log(" search resposne"+data)
            setCurrentItems(data)
         })
@@ -79,35 +83,35 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
   
    }, []);
    // handleSortOptionChange
-   const handleClassificationChange = (event: ChangeEvent<HTMLSelectElement>) => {
+   const handleClassificationChange = async (event: ChangeEvent<HTMLSelectElement>) => {
       setClassificationChange(event.target.value);
       updatePropertyList()
       setItemOffset(0);
    };
 
    // handleStatusChange
-   const handleStatusChange = (event: ChangeEvent<HTMLSelectElement>) => {
+   const handleStatusChange = async (event: ChangeEvent<HTMLSelectElement>) => {
       setStatus(event.target.value);
       updatePropertyList()
       setItemOffset(0);
    };
 
    // handleLocationChange
-   const handleLocationChange = (event: ChangeEvent<HTMLSelectElement>) => {
-      setLocation(event.target.value);
+   const handleLocationChange = async (event: ChangeEvent<HTMLSelectElement>) => {
+      await setLocation(event.target.value);
       updatePropertyList()
       setItemOffset(0);
    };
 
    // handleBedroomChange
-   const handleBedroomChange = (event: ChangeEvent<HTMLSelectElement>) => {
-      setSelectedBedrooms(event.target.value);
+   const handleBedroomChange =  async (event: ChangeEvent<HTMLSelectElement>) => {
+      await setSelectedBedrooms(event.target.value);
       updatePropertyList()
       setItemOffset(0);
    };
 
    // handleBathroomChange
-   const handleBathroomChange = (event: ChangeEvent<HTMLSelectElement>) => {
+   const handleBathroomChange = async (event: ChangeEvent<HTMLSelectElement>) => {
       setSelectedBathrooms(event.target.value);
       updatePropertyList()
       setItemOffset(0);
@@ -115,7 +119,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    };
 
    // handleAmenityChange
-   const handleAmenityChange = (event: ChangeEvent<HTMLInputElement>) => {
+   const handleAmenityChange =  async (event: ChangeEvent<HTMLInputElement>) => {
       const amenity = event.target.value;
     
       setSelectedAmenities((prevSelectedAmenities) => {
@@ -168,7 +172,7 @@ const  UseShortedProperty = ({ propertyList,itemsPerPage, page }: DataType) => {
    const allProperties = useSelector(selectProperties);
    const filteredAllProduct = allProperties.filter(item => item.page === "listing_1");
 
-   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+   const handleSearchChange =  async(e: React.ChangeEvent<HTMLInputElement>): void => {
       let req ={
          location,
          maxPrice,
